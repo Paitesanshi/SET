@@ -1,0 +1,248 @@
+{
+  "session_id": "565c6bd9-37bb-43af-a2ca-e3ca4177252d",
+  "user_name": "test",
+  "phone": "10000000000",
+  "svo": "Individualistic",
+  "rounds": 5,
+  "turn_index": 1,
+  "finished": false,
+  "turns_data": {
+    "0": {
+      "discussion": [],
+      "proposals": [],
+      "actions": [],
+      "final_deals": [],
+      "agent_states": {
+        "Alice": {
+          "resources": {
+            "Resource A": 5,
+            "Resource B": 5,
+            "Resource C": 5
+          },
+          "affinity": {
+            "Bob": 1,
+            "Carol": 1
+          },
+          "beliefs": {},
+          "desires": {},
+          "intentions": {}
+        },
+        "Bob": {
+          "resources": {
+            "Resource A": 5,
+            "Resource B": 5,
+            "Resource C": 5
+          },
+          "affinity": {
+            "Alice": 1,
+            "Carol": 1
+          },
+          "beliefs": {},
+          "desires": {},
+          "intentions": {}
+        },
+        "Carol": {
+          "resources": {
+            "Resource A": 5,
+            "Resource B": 5,
+            "Resource C": 5
+          },
+          "affinity": {
+            "Alice": 3,
+            "Bob": 3
+          },
+          "beliefs": {},
+          "desires": {},
+          "intentions": {}
+        }
+      }
+    },
+    "1": {
+      "discussion": [
+        "System: \n=== Turn 1 Start! ===\n",
+        "Carol: [Action 1] PROPOSE #1 to Alice: Carol GIVES [6 Resource C] IN EXCHANGE FOR [8 Resource A]\n[Action 2] PROPOSE #2 to Alice: Carol GIVES [6 Resource C] IN EXCHANGE FOR [8 Resource B]",
+        "Carol: [Action 1] PROPOSE #3 to Alice: Carol GIVES [8 Resource C] IN EXCHANGE FOR [8 Resource A]\n[Action 2] PROPOSE #4 to Alice: Carol GIVES [7 Resource C] IN EXCHANGE FOR [7 Resource B]"
+      ],
+      "proposals": [
+        {
+          "id": 1,
+          "from_agent": "Carol",
+          "to_agent": "Alice",
+          "give_resource": {
+            "Resource A": 0,
+            "Resource B": 0,
+            "Resource C": 6
+          },
+          "receive_resource": {
+            "Resource A": 8,
+            "Resource B": 0,
+            "Resource C": 0
+          },
+          "status": "pending"
+        },
+        {
+          "id": 2,
+          "from_agent": "Carol",
+          "to_agent": "Alice",
+          "give_resource": {
+            "Resource A": 0,
+            "Resource B": 0,
+            "Resource C": 6
+          },
+          "receive_resource": {
+            "Resource A": 0,
+            "Resource B": 8,
+            "Resource C": 0
+          },
+          "status": "pending"
+        },
+        {
+          "id": 3,
+          "from_agent": "Carol",
+          "to_agent": "Alice",
+          "give_resource": {
+            "Resource A": 0,
+            "Resource B": 0,
+            "Resource C": 8
+          },
+          "receive_resource": {
+            "Resource A": 8,
+            "Resource B": 0,
+            "Resource C": 0
+          },
+          "status": "pending"
+        },
+        {
+          "id": 4,
+          "from_agent": "Carol",
+          "to_agent": "Alice",
+          "give_resource": {
+            "Resource A": 0,
+            "Resource B": 0,
+            "Resource C": 7
+          },
+          "receive_resource": {
+            "Resource A": 0,
+            "Resource B": 7,
+            "Resource C": 0
+          },
+          "status": "pending"
+        }
+      ],
+      "actions": [
+        {
+          "action": "SKIP",
+          "turn": 1,
+          "agent": "Alice"
+        },
+        {
+          "action": "SKIP",
+          "turn": 1,
+          "agent": "Bob"
+        },
+        {
+          "action": "PROPOSE",
+          "turn": 1,
+          "proposal": {
+            "id": 1,
+            "from_agent": "Carol",
+            "to_agent": "Alice",
+            "give_resource": {
+              "Resource A": 0,
+              "Resource B": 0,
+              "Resource C": 6
+            },
+            "receive_resource": {
+              "Resource A": 8,
+              "Resource B": 0,
+              "Resource C": 0
+            },
+            "status": "pending"
+          }
+        },
+        {
+          "action": "PROPOSE",
+          "turn": 1,
+          "proposal": {
+            "id": 2,
+            "from_agent": "Carol",
+            "to_agent": "Alice",
+            "give_resource": {
+              "Resource A": 0,
+              "Resource B": 0,
+              "Resource C": 6
+            },
+            "receive_resource": {
+              "Resource A": 0,
+              "Resource B": 8,
+              "Resource C": 0
+            },
+            "status": "pending"
+          }
+        },
+        {
+          "action": "SKIP",
+          "turn": 1,
+          "agent": "Alice"
+        },
+        {
+          "action": "SKIP",
+          "turn": 1,
+          "agent": "Bob"
+        },
+        {
+          "action": "PROPOSE",
+          "turn": 1,
+          "proposal": {
+            "id": 3,
+            "from_agent": "Carol",
+            "to_agent": "Alice",
+            "give_resource": {
+              "Resource A": 0,
+              "Resource B": 0,
+              "Resource C": 8
+            },
+            "receive_resource": {
+              "Resource A": 8,
+              "Resource B": 0,
+              "Resource C": 0
+            },
+            "status": "pending"
+          }
+        },
+        {
+          "action": "PROPOSE",
+          "turn": 1,
+          "proposal": {
+            "id": 4,
+            "from_agent": "Carol",
+            "to_agent": "Alice",
+            "give_resource": {
+              "Resource A": 0,
+              "Resource B": 0,
+              "Resource C": 7
+            },
+            "receive_resource": {
+              "Resource A": 0,
+              "Resource B": 7,
+              "Resource C": 0
+            },
+            "status": "pending"
+          }
+        },
+        {
+          "action": "SKIP",
+          "turn": 1,
+          "agent": "Alice"
+        },
+        {
+          "action": "SKIP",
+          "turn": 1,
+          "agent": "Bob"
+        }
+      ],
+      "final_deals": [],
+      "agent_states": {}
+    }
+  }
+}

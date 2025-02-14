@@ -1,0 +1,167 @@
+2025-01-19 20:05:01 | WARNING  | agentscope.manager._model:load_model_configs:131 - Config name [openai-gpt4o] already exists.
+2025-01-19 20:05:01 | INFO     | agentscope.manager._model:load_model_configs:138 - Load configs for model wrapper: openai-gpt4o
+2025-01-19 20:05:01 | WARNING  | agentscope.models.openai_model:__init__:117 - fail to get max_length for gpt-4o: 'Model [gpt-4o] not found in OPENAI_MAX_LENGTH. The last updated date is 20231212'
+2025-01-19 20:05:01 | INFO     | envs.seroom:__init__:454 - introduction: You are Alice, specialized in Resource A.
+2025-01-19 20:05:01 | WARNING  | agentscope.models.openai_model:__init__:117 - fail to get max_length for gpt-4o: 'Model [gpt-4o] not found in OPENAI_MAX_LENGTH. The last updated date is 20231212'
+2025-01-19 20:05:01 | INFO     | envs.seroom:__init__:454 - introduction: You are Bob, specialized in Resource B.
+2025-01-19 20:05:01 | WARNING  | agentscope.models.openai_model:__init__:117 - fail to get max_length for gpt-4o: 'Model [gpt-4o] not found in OPENAI_MAX_LENGTH. The last updated date is 20231212'
+2025-01-19 20:05:01 | INFO     | envs.seroom:__init__:454 - introduction: You are Carol, specialized in Resource C.
+2025-01-19 20:05:01 | WARNING  | agentscope.models.openai_model:__init__:117 - fail to get max_length for gpt-4o: 'Model [gpt-4o] not found in OPENAI_MAX_LENGTH. The last updated date is 20231212'
+2025-01-19 20:05:01 | WARNING  | agentscope.environment.env:add_listener:316 - Listener mentioned_notifier already exists in speak
+2025-01-19 20:05:01 | WARNING  | agentscope.environment.env:add_listener:316 - Listener mentioned_notifier already exists in speak
+2025-01-19 20:05:01 | WARNING  | agentscope.environment.env:add_listener:316 - Listener mentioned_notifier already exists in speak
+Alice: [Action 1] PROPOSE #1 to Bob: Alice GIVES [5 Resource A] IN EXCHANGE FOR Bob's [5 Resource B]
+[Action 2] PROPOSE #2 to Carol: Alice GIVES [5 Resource A] IN EXCHANGE FOR Carol's [5 Resource C]
+Bob: [Action 1] ACCEPT proposal #1 from Alice
+[Action 2] PROPOSE #3 to Carol: Bob GIVES [5 Resource B] IN EXCHANGE FOR Carol's [5 Resource C]
+Alice: [Action 1] ACCEPT proposal #4 from Carol
+[Action 2] PROPOSE #6 to Bob: Alice GIVES [1 Resource A] IN EXCHANGE FOR Bob's [1 Resource B]
+Bob: [Action 1] ACCEPT proposal #6 from Alice
+[Action 2] ACCEPT proposal #5 from Carol
+Alice: [Action 1] Nothing to speak.
+Bob: [Action 1] Nothing to speak.
+Alice: [Action 1] Nothing to speak.
+Bob: [Action 1] Nothing to speak.
+Alice: [Action 1] PROPOSE #1 to Bob: Alice GIVES [5 Resource A] IN EXCHANGE FOR Bob's [5 Resource B]
+[Action 2] PROPOSE #2 to Carol: Alice GIVES [5 Resource A] IN EXCHANGE FOR Carol's [5 Resource C]
+Bob: [Action 1] ACCEPT proposal #1 from Alice
+[Action 2] PROPOSE #3 to Carol: Bob GIVES [5 Resource B] IN EXCHANGE FOR Carol's [5 Resource C]
+Alice: [Action 1] Nothing to speak.
+Bob: [Action 1] Nothing to speak.
+Alice: [Action 1] PROPOSE #1 to Bob: Alice GIVES [3 Resource A] IN EXCHANGE FOR Bob's [3 Resource B]
+[Action 2] PROPOSE #2 to Carol: Alice GIVES [2 Resource A] IN EXCHANGE FOR Carol's [2 Resource C]
+Bob: [Action 1] ACCEPT proposal #1 from Alice
+[Action 2] PROPOSE #3 to Carol: Bob GIVES [2 Resource B] IN EXCHANGE FOR Carol's [2 Resource C]
+Alice: [Action 1] PROPOSE #1 to Bob: Alice GIVES [5 Resource A] IN EXCHANGE FOR Bob's [5 Resource B]
+[Action 2] PROPOSE #2 to Carol: Alice GIVES [5 Resource A] IN EXCHANGE FOR Carol's [5 Resource C]
+Alice: [Action 1] Nothing to speak.
+Bob: [Action 1] Nothing to speak.
+Bob: [Action 1] ACCEPT proposal #1 from Alice
+[Action 2] PROPOSE #3 to Carol: Bob GIVES [5 Resource B] IN EXCHANGE FOR Carol's [5 Resource C]
+Alice: [Action 1] Nothing to speak.
+Bob: [Action 1] Nothing to speak.
+Alice: [Action 1] Nothing to speak.
+Bob: [Action 1] Nothing to speak.
+Alice: [Action 1] PROPOSE #1 to Bob: Alice GIVES [5 Resource A] IN EXCHANGE FOR Bob's [5 Resource B]
+[Action 2] PROPOSE #2 to Carol: Alice GIVES [5 Resource A] IN EXCHANGE FOR Carol's [5 Resource C]
+Bob: [Action 1] ACCEPT proposal #1 from Alice
+[Action 2] PROPOSE #3 to Carol: Bob GIVES [5 Resource B] IN EXCHANGE FOR Carol's [5 Resource C]
+Alice: [Action 1] Nothing to speak.
+Bob: [Action 1] Nothing to speak.
+Alice: [Action 1] PROPOSE #1 to Bob: Alice GIVES [3 Resource A] IN EXCHANGE FOR Bob's [3 Resource B]
+[Action 2] PROPOSE #2 to Carol: Alice GIVES [2 Resource A] IN EXCHANGE FOR Carol's [3 Resource C]
+Bob: [Action 1] ACCEPT proposal #1 from Alice
+[Action 2] PROPOSE #3 to Carol: Bob GIVES [3 Resource B] IN EXCHANGE FOR Carol's [3 Resource C]
+Alice: [Action 1] PROPOSE #1 to Bob: Alice GIVES [5 Resource A] IN EXCHANGE FOR Bob's [5 Resource B]
+[Action 2] PROPOSE #2 to Carol: Alice GIVES [5 Resource A] IN EXCHANGE FOR Carol's [5 Resource C]
+Bob: [Action 1] ACCEPT proposal #1 from Alice
+[Action 2] PROPOSE #3 to Carol: Bob GIVES [5 Resource C] IN EXCHANGE FOR Carol's [5 Resource B]
+Alice: [Action 1] Nothing to speak.
+Bob: [Action 1] Nothing to speak.
+Alice: [Action 1] Nothing to speak.
+Bob: [Action 1] Nothing to speak.
+Alice: [Action 1] Nothing to speak.
+Bob: [Action 1] Nothing to speak.
+Alice: [Action 1] PROPOSE #1 to Bob: Alice GIVES [5 Resource A] IN EXCHANGE FOR Bob's [5 Resource B]
+[Action 2] PROPOSE #2 to Carol: Alice GIVES [5 Resource A] IN EXCHANGE FOR Carol's [5 Resource C]
+Bob: [Action 1] ACCEPT proposal #1 from Alice
+[Action 2] PROPOSE #3 to Carol: Bob GIVES [5 Resource C] IN EXCHANGE FOR Carol's [5 Resource B]
+Alice: [Action 1] PROPOSE #1 to Bob: Alice GIVES [3 Resource A] IN EXCHANGE FOR Bob's [3 Resource B]
+[Action 2] PROPOSE #2 to Carol: Alice GIVES [2 Resource A] IN EXCHANGE FOR Carol's [3 Resource C]
+Bob: [Action 1] ACCEPT proposal #1 from Alice
+[Action 2] PROPOSE #3 to Carol: Bob GIVES [2 Resource B] IN EXCHANGE FOR Carol's [2 Resource C]
+Alice: [Action 1] Nothing to speak.
+Bob: [Action 1] Nothing to speak.
+Alice: [Action 1] Nothing to speak.
+Bob: [Action 1] ACCEPT proposal #4 from Carol
+[Action 2] PROPOSE #5 to Alice: Bob GIVES [5 Resource B] IN EXCHANGE FOR Alice's [5 Resource A]
+Alice: [Action 1] Nothing to speak.
+Bob: [Action 1] Nothing to speak.
+Alice: [Action 1] PROPOSE #1 to Bob: Alice GIVES [3 Resource A] IN EXCHANGE FOR Bob's [3 Resource B]
+[Action 2] PROPOSE #2 to Carol: Alice GIVES [2 Resource A] IN EXCHANGE FOR Carol's [3 Resource C]
+Bob: [Action 1] ACCEPT proposal #1 from Alice
+[Action 2] PROPOSE #3 to Carol: Bob GIVES [2 Resource B] IN EXCHANGE FOR Carol's [2 Resource C]
+Alice: [Action 1] PROPOSE #4 to Carol: Alice GIVES [2 Resource A] IN EXCHANGE FOR Carol's [3 Resource C]
+Bob: [Action 1] Nothing to speak.
+Alice: [Action 1] Nothing to speak.
+Bob: [Action 1] Nothing to speak.
+Alice: [Action 1] PROPOSE #1 to Bob: Alice GIVES [5 Resource A] IN EXCHANGE FOR Bob's [5 Resource B]
+[Action 2] PROPOSE #2 to Carol: Alice GIVES [5 Resource A] IN EXCHANGE FOR Carol's [5 Resource C]
+Bob: [Action 1] ACCEPT proposal #1 from Alice
+[Action 2] PROPOSE #3 to Carol: Bob GIVES [5 Resource C] IN EXCHANGE FOR Carol's [5 Resource B]
+Alice: [Action 1] Nothing to speak.
+Bob: [Action 1] PROPOSE #5 to Alice: Bob GIVES [5 Resource B] IN EXCHANGE FOR Alice's [5 Resource A]
+[Action 2] ACCEPT proposal #4 from Carol
+Alice: [Action 1] PROPOSE #1 to Bob: Alice GIVES [3 Resource A] IN EXCHANGE FOR Bob's [3 Resource B]
+[Action 2] PROPOSE #2 to Carol: Alice GIVES [2 Resource A] IN EXCHANGE FOR Carol's [3 Resource C]
+Bob: [Action 1] ACCEPT proposal #1 from Alice
+[Action 2] PROPOSE #3 to Carol: Bob GIVES [2 Resource B] IN EXCHANGE FOR Carol's [3 Resource C]
+Alice: [Action 1] Nothing to speak.
+Bob: [Action 1] Nothing to speak.
+Alice: [Action 1] Nothing to speak.
+Bob: [Action 1] Nothing to speak.
+Alice: [Action 1] PROPOSE #1 to Bob: Alice GIVES [3 Resource A] IN EXCHANGE FOR Bob's [3 Resource B]
+[Action 2] PROPOSE #2 to Carol: Alice GIVES [2 Resource A] IN EXCHANGE FOR Carol's [3 Resource C]
+Alice: [Action 1] PROPOSE #1 to Bob: Alice GIVES [5 Resource A] IN EXCHANGE FOR Bob's [5 Resource B]
+[Action 2] PROPOSE #2 to Carol: Alice GIVES [5 Resource A] IN EXCHANGE FOR Carol's [5 Resource C]
+Bob: [Action 1] ACCEPT proposal #1 from Alice
+[Action 2] PROPOSE #3 to Carol: Bob GIVES [2 Resource B] IN EXCHANGE FOR Carol's [3 Resource C]
+Bob: [Action 1] ACCEPT proposal #1 from Alice
+[Action 2] PROPOSE #3 to Alice: Bob GIVES [5 Resource C] IN EXCHANGE FOR Alice's [5 Resource B]
+[Action 3] PROPOSE #4 to Carol: Bob GIVES [5 Resource C] IN EXCHANGE FOR Carol's [5 Resource B]
+Alice: [Action 1] Nothing to speak.
+Bob: [Action 1] Nothing to speak.
+Alice: [Action 1] PROPOSE #1 to Bob: Alice GIVES [3 Resource A] IN EXCHANGE FOR Bob's [3 Resource B]
+[Action 2] PROPOSE #2 to Carol: Alice GIVES [2 Resource A] IN EXCHANGE FOR Carol's [3 Resource C]
+Bob: [Action 1] ACCEPT proposal #1 from Alice
+[Action 2] PROPOSE #3 to Carol: Bob GIVES [2 Resource B] IN EXCHANGE FOR Carol's [2 Resource C]
+Alice: [Action 1] ACCEPT proposal #3 from Bob
+[Action 2] ACCEPT proposal #5 from Carol
+Bob: [Action 1] ACCEPT proposal #6 from Carol
+[Action 2] PROPOSE #7 to Alice: Bob GIVES [5 Resource C] IN EXCHANGE FOR Alice's [5 Resource B]
+[Action 3] PROPOSE #8 to Carol: Bob GIVES [5 Resource C] IN EXCHANGE FOR Carol's [5 Resource B]
+Alice: [Action 1] Nothing to speak.
+Bob: [Action 1] Nothing to speak.
+Alice: [Action 1] Nothing to speak.
+Bob: [Action 1] Nothing to speak.
+Alice: [Action 1] PROPOSE #1 to Bob: Alice GIVES [3 Resource A] IN EXCHANGE FOR Bob's [3 Resource B]
+[Action 2] PROPOSE #2 to Carol: Alice GIVES [2 Resource A] IN EXCHANGE FOR Carol's [2 Resource C]
+Bob: [Action 1] ACCEPT proposal #1 from Alice
+[Action 2] PROPOSE #3 to Carol: Bob GIVES [3 Resource B] IN EXCHANGE FOR Carol's [3 Resource C]
+Alice: [Action 1] ACCEPT proposal #7 from Bob
+[Action 2] ACCEPT proposal #9 from Carol
+Bob: [Action 1] REJECT proposal #10 from Carol
+[Action 2] PROPOSE #11 to Alice: Bob GIVES [5 Resource C] IN EXCHANGE FOR Alice's [5 Resource B]
+[Action 3] PROPOSE #12 to Carol: Bob GIVES [2 Resource C] IN EXCHANGE FOR Carol's [2 Resource B]
+Alice: [Action 1] Nothing to speak.
+Bob: [Action 1] Nothing to speak.
+Alice: [Action 1] Nothing to speak.
+Bob: [Action 1] Nothing to speak.
+Alice: [Action 1] PROPOSE #1 to Bob: Alice GIVES [3 Resource A] IN EXCHANGE FOR Bob's [3 Resource B]
+[Action 2] PROPOSE #2 to Carol: Alice GIVES [2 Resource A] IN EXCHANGE FOR Carol's [2 Resource C]
+Bob: [Action 1] ACCEPT proposal #1 from Alice
+[Action 2] PROPOSE #3 to Carol: Bob GIVES [2 Resource B] IN EXCHANGE FOR Carol's [3 Resource C]
+Alice: [Action 1] PROPOSE #1 to Bob: Alice GIVES [5 Resource A] IN EXCHANGE FOR Bob's [5 Resource B]
+[Action 2] PROPOSE #2 to Carol: Alice GIVES [3 Resource A] IN EXCHANGE FOR Carol's [3 Resource C]
+Bob: [Action 1] ACCEPT proposal #1 from Alice
+[Action 2] PROPOSE #3 to Carol: Bob GIVES [2 Resource C] IN EXCHANGE FOR Carol's [2 Resource B]
+Alice: [Action 1] Nothing to speak.
+Bob: [Action 1] Nothing to speak.
+Alice: [Action 1] Nothing to speak.
+Bob: [Action 1] Nothing to speak.
+Alice: [Action 1] Nothing to speak.
+Bob: [Action 1] REJECT proposal #4 from Carol
+[Action 2] PROPOSE #5 to Alice: Bob GIVES [5 Resource B] IN EXCHANGE FOR Alice's [5 Resource C]
+Alice: [Action 1] Nothing to speak.
+Bob: [Action 1] Nothing to speak.
+Alice: [Action 1] PROPOSE #1 to Bob: Alice GIVES [5 Resource A] IN EXCHANGE FOR Bob's [5 Resource B]
+[Action 2] PROPOSE #2 to Carol: Alice GIVES [3 Resource A] IN EXCHANGE FOR Carol's [3 Resource C]
+Bob: [Action 1] ACCEPT proposal #1 from Alice
+[Action 2] PROPOSE #3 to Alice: Bob GIVES [5 Resource C] IN EXCHANGE FOR Alice's [5 Resource B]
+[Action 3] PROPOSE #4 to Carol: Bob GIVES [2 Resource C] IN EXCHANGE FOR Carol's [2 Resource B]
+Alice: [Action 1] ACCEPT proposal #3 from Bob
+[Action 2] PROPOSE #6 to Carol: Alice GIVES [2 Resource A] IN EXCHANGE FOR Carol's [2 Resource C]
+Bob: [Action 1] REJECT proposal #5 from Carol
+[Action 2] PROPOSE #7 to Carol: Bob GIVES [1 Resource C] IN EXCHANGE FOR Carol's [1 Resource B]
+Alice: [Action 1] Nothing to speak.
+Bob: [Action 1] Nothing to speak.

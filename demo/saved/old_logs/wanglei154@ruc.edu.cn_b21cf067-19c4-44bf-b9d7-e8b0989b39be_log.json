@@ -1,0 +1,159 @@
+{
+  "session_id": "b21cf067-19c4-44bf-b9d7-e8b0989b39be",
+  "user_name": "PTSS",
+  "email": "wanglei154@ruc.edu.cn",
+  "svo": "Individualistic",
+  "rounds": 1,
+  "turn_index": 1,
+  "finished": false,
+  "turns_data": {
+    "0": {
+      "discussion": [],
+      "proposals": [],
+      "actions": [],
+      "final_deals": [],
+      "agent_states": {
+        "Alice": {
+          "resources": {
+            "Resource A": 15,
+            "Resource B": 5,
+            "Resource C": 5
+          },
+          "affinity": {
+            "Bob": 3,
+            "Carol": 3
+          },
+          "beliefs": {},
+          "desires": {},
+          "intentions": {}
+        },
+        "Bob": {
+          "resources": {
+            "Resource A": 5,
+            "Resource B": 15,
+            "Resource C": 5
+          },
+          "affinity": {
+            "Alice": 3,
+            "Carol": 3
+          },
+          "beliefs": {},
+          "desires": {},
+          "intentions": {}
+        },
+        "Carol": {
+          "resources": {
+            "Resource A": 5,
+            "Resource B": 5,
+            "Resource C": 15
+          },
+          "affinity": {
+            "Alice": 3,
+            "Bob": 3
+          },
+          "beliefs": {},
+          "desires": {},
+          "intentions": {}
+        }
+      }
+    },
+    "1": {
+      "discussion": [
+        "System: \n=== Turn 1 Start! ===\n",
+        "Alice: [Action 1] PROPOSE #1 to Bob: Alice GIVES [5 Resource A] IN EXCHANGE FOR Bob's [5 Resource B]\n[Action 2] PROPOSE #2 to Carol: Alice GIVES [5 Resource A] IN EXCHANGE FOR Carol's [5 Resource C]",
+        "Bob: [Action 1] ACCEPT proposal #1 from Alice",
+        "Carol: ACCEPT proposal #2",
+        "Carol: Nothing to speak."
+      ],
+      "proposals": [],
+      "actions": [
+        {
+          "turn": 1,
+          "agent": "Alice",
+          "message": {
+            "__module__": "agentscope.message.msg",
+            "__name__": "Msg",
+            "metadata": null,
+            "timestamp": "2025-01-15 17:15:44",
+            "url": null,
+            "name": "Alice",
+            "content": "[Action 1] PROPOSE #1 to Bob: Alice GIVES [5 Resource A] IN EXCHANGE FOR Bob's [5 Resource B]\n[Action 2] PROPOSE #2 to Carol: Alice GIVES [5 Resource A] IN EXCHANGE FOR Carol's [5 Resource C]",
+            "id": "de1106c44c32453fa6325144c5dd54d1",
+            "role": "assistant"
+          },
+          "actions": [
+            {
+              "action": "PROPOSE",
+              "target_player": "Bob",
+              "proposal_id": null,
+              "give": {
+                "Resource A": 5
+              },
+              "get": {
+                "Resource B": 5
+              },
+              "reason": "To increase my Resource B stock, optimizing for the combination value without sacrificing too much of my Resource A production."
+            },
+            {
+              "action": "PROPOSE",
+              "target_player": "Carol",
+              "proposal_id": null,
+              "give": {
+                "Resource A": 5
+              },
+              "get": {
+                "Resource C": 5
+              },
+              "reason": "To increase my Resource C stock, aiming to maximize the combination value of Resource A and C."
+            }
+          ]
+        },
+        {
+          "turn": 1,
+          "agent": "Bob",
+          "message": {
+            "__module__": "agentscope.message.msg",
+            "__name__": "Msg",
+            "metadata": null,
+            "timestamp": "2025-01-15 17:15:51",
+            "url": null,
+            "name": "Bob",
+            "content": "[Action 1] ACCEPT proposal #1 from Alice",
+            "id": "0fa90ab40cbf4511b852741cf1ed68c6",
+            "role": "assistant"
+          },
+          "actions": [
+            {
+              "action": "ACCEPT",
+              "target_player": "Alice",
+              "proposal_id": 1,
+              "reason": "This trade allows me to diversify my resource holdings and potentially create higher value combinations."
+            }
+          ]
+        },
+        {
+          "turnaction": "ACCEPT",
+          "turn": 1,
+          "proposal_id": 2
+        },
+        {
+          "action": "SKIP",
+          "turn": 1,
+          "agent": "Alice"
+        },
+        {
+          "action": "SKIP",
+          "turn": 1,
+          "agent": "Bob"
+        },
+        {
+          "action": "SKIP",
+          "turn": 1,
+          "agent": "Carol"
+        }
+      ],
+      "final_deals": [],
+      "agent_states": {}
+    }
+  }
+}

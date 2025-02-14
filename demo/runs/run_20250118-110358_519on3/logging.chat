@@ -1,0 +1,2 @@
+{"__module__": "agentscope.message.msg", "__name__": "Msg", "name": "Alice", "timestamp": "2025-01-18 11:17:46", "metadata": null, "url": null, "id": "cb18f1ff424a4cb79b82dd8f157db498", "content": "[Action 1] Nothing to speak.", "role": "assistant"}
+{"__module__": "agentscope.message.msg", "__name__": "Msg", "name": "Bob", "timestamp": "2025-01-18 11:17:46", "metadata": null, "url": null, "id": "b020892b9c5a428aaedcd35ff84a91ac", "content": "[Action 1] Nothing to speak.", "role": "assistant"}

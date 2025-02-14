@@ -1,0 +1,6 @@
+2025-01-13 21:46:57 | INFO     | agentscope.manager._model:load_model_configs:138 - Load configs for model wrapper: openai-gpt4o
+2025-01-13 21:46:57 | WARNING  | agentscope.models.openai_model:__init__:117 - fail to get max_length for gpt-4o: 'Model [gpt-4o] not found in OPENAI_MAX_LENGTH. The last updated date is 20231212'
+2025-01-13 21:46:57 | INFO     | envs.seroom:__init__:442 - introduction: You are Alice, specialized in Resource A.
+2025-01-13 21:46:57 | WARNING  | agentscope.models.openai_model:__init__:117 - fail to get max_length for gpt-4o: 'Model [gpt-4o] not found in OPENAI_MAX_LENGTH. The last updated date is 20231212'
+2025-01-13 21:46:57 | INFO     | envs.seroom:__init__:442 - introduction: You are Bob, specialized in Resource B.
+2025-01-13 21:46:57 | ERROR    | __main__:login:193 - 初始化模拟失败: UserAgent.__init__() missing 1 required positional argument: 'config'

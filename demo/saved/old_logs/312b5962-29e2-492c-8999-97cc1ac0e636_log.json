@@ -1,0 +1,18 @@
+{
+  "session_id": "312b5962-29e2-492c-8999-97cc1ac0e636",
+  "user_name": "PTSS",
+  "email": "wanglei154@ruc.edu.cn",
+  "svo": "Individualistic",
+  "rounds": 5,
+  "turn_index": 0,
+  "finished": false,
+  "turns_data": {
+    "0": {
+      "discussion": [],
+      "proposals": [],
+      "actions": [],
+      "final_deals": [],
+      "agent_states": {}
+    }
+  }
+}

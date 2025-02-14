@@ -1,0 +1,147 @@
+{
+  "session_id": "26401fa7-1655-4445-a0b5-a5931fe43844",
+  "user_name": "PTSS",
+  "email": "wanglei154@ruc.edu.cn",
+  "svo": "Individualistic",
+  "rounds": 2,
+  "turn_index": 1,
+  "finished": false,
+  "turns_data": {
+    "0": {
+      "discussion": [],
+      "proposals": [],
+      "actions": [],
+      "final_deals": [],
+      "agent_states": {
+        "Alice": {
+          "resources": {
+            "Resource A": 15,
+            "Resource B": 5,
+            "Resource C": 5
+          },
+          "affinity": {
+            "Bob": 3,
+            "Carol": 3
+          },
+          "beliefs": {},
+          "desires": {},
+          "intentions": {}
+        },
+        "Bob": {
+          "resources": {
+            "Resource A": 5,
+            "Resource B": 15,
+            "Resource C": 5
+          },
+          "affinity": {
+            "Alice": 3,
+            "Carol": 3
+          },
+          "beliefs": {},
+          "desires": {},
+          "intentions": {}
+        },
+        "Carol": {
+          "resources": {
+            "Resource A": 5,
+            "Resource B": 5,
+            "Resource C": 15
+          },
+          "affinity": {
+            "Alice": 3,
+            "Bob": 3
+          },
+          "beliefs": {},
+          "desires": {},
+          "intentions": {}
+        }
+      }
+    },
+    "1": {
+      "discussion": [
+        "System: \n=== Turn 1 Start! ===\n",
+        "Bob: [Action 1] PROPOSE #1 to Alice: Bob GIVES [5 Resource B] IN EXCHANGE FOR Alice's [5 Resource A]\n[Action 2] PROPOSE #2 to Carol: Bob GIVES [5 Resource B] IN EXCHANGE FOR Carol's [5 Resource C]",
+        "Carol: [Action 1] ACCEPT proposal #2 from Bob",
+        "Bob: (No valid actions)"
+      ],
+      "proposals": [],
+      "actions": [
+        {
+          "action": "SKIP",
+          "turn": 1,
+          "agent": "Alice"
+        },
+        {
+          "turn": 1,
+          "agent": "Bob",
+          "message": {
+            "__module__": "agentscope.message.msg",
+            "__name__": "Msg",
+            "timestamp": "2025-01-15 20:46:38",
+            "url": null,
+            "metadata": null,
+            "content": "[Action 1] PROPOSE #1 to Alice: Bob GIVES [5 Resource B] IN EXCHANGE FOR Alice's [5 Resource A]\n[Action 2] PROPOSE #2 to Carol: Bob GIVES [5 Resource B] IN EXCHANGE FOR Carol's [5 Resource C]",
+            "id": "56a409fad38c43eab7dafeec8c68be16",
+            "role": "assistant",
+            "name": "Bob"
+          },
+          "actions": [
+            {
+              "action": "PROPOSE",
+              "target_player": "Alice",
+              "proposal_id": null,
+              "give": {
+                "Resource B": 5
+              },
+              "get": {
+                "Resource A": 5
+              },
+              "reason": "I want to balance my resource portfolio by trading Resource B for Resource A, which will increase my potential for high-value combinations."
+            },
+            {
+              "action": "PROPOSE",
+              "target_player": "Carol",
+              "proposal_id": null,
+              "give": {
+                "Resource B": 5
+              },
+              "get": {
+                "Resource C": 5
+              },
+              "reason": "Exchanging Resource B for Resource C will help me diversify my resources and maximize combination values."
+            }
+          ]
+        },
+        {
+          "action": "ACCEPT",
+          "turn": 1,
+          "proposal_id": 2
+        },
+        {
+          "action": "SKIP",
+          "turn": 1,
+          "agent": "Alice"
+        },
+        {
+          "action": "REPLY",
+          "turn": 1,
+          "agent": "Bob",
+          "message": {
+            "__module__": "agentscope.message.msg",
+            "__name__": "Msg",
+            "timestamp": "2025-01-15 20:47:09",
+            "url": null,
+            "metadata": null,
+            "content": "(No valid actions)",
+            "id": "c7729c2fb3c8451289ebc01a63fde204",
+            "role": "assistant",
+            "name": "Bob"
+          },
+          "actions": []
+        }
+      ],
+      "final_deals": [],
+      "agent_states": {}
+    }
+  }
+}

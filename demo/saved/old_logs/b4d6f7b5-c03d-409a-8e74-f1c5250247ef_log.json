@@ -1,0 +1,302 @@
+{
+  "session_id": "b4d6f7b5-c03d-409a-8e74-f1c5250247ef",
+  "user_name": "PTSS",
+  "email": "wanglei154@ruc.edu.cn",
+  "svo": "Individualistic",
+  "rounds": 5,
+  "turn_index": 2,
+  "finished": false,
+  "turns_data": {
+    "0": {
+      "discussion": [],
+      "proposals": [],
+      "actions": [],
+      "final_deals": [],
+      "agent_states": {}
+    },
+    "1": {
+      "discussion": [
+        "System: \n=== Turn 1 Start! ===\n",
+        "Alice: [Action 1] PROPOSE #1 to Bob: Alice GIVES [5 Resource A] IN EXCHANGE FOR Bob's [5 Resource B]\n[Action 2] PROPOSE #2 to Carol: Alice GIVES [5 Resource A] IN EXCHANGE FOR Carol's [5 Resource C]",
+        "Bob: [Action 1] ACCEPT proposal #1 from Alice",
+        "Carol: ACCEPT proposal #2",
+        "Carol: PROPOSE #3 to Bob: Carol GIVES [0 Resource A, 0 Resource B, 1 Resource C] IN EXCHANGE FOR [0 Resource A, 2 Resource B, 0 Resource C]",
+        "Bob: [Action 1] ACCEPT proposal #3 from Carol",
+        "Carol: Carol chooses to skip speaking.",
+        "Carol: Final deals proposed: [{\"to\": \"Alice\", \"resource_give\": {\"Resource A\": 1, \"Resource B\": 0, \"Resource C\": 0}, \"resource_receive\": {}}, {\"to\": \"Bob\", \"resource_give\": {\"Resource A\": 1, \"Resource B\": 0, \"Resource C\": 0}, \"resource_receive\": {}}]",
+        "System: Carol -> Alice: 1Resource A",
+        "System: Carol -> Bob: 1Resource A",
+        "System: Alice -> Bob: 5Resource A",
+        "System: Bob -> Alice: 5Resource B",
+        "System: Alice -> Carol: 5Resource A",
+        "System: Carol -> Alice: 5Resource C",
+        "System: Bob -> Alice: 5Resource B",
+        "System: Alice -> Bob: 5Resource A",
+        "System: Bob -> Carol: 2Resource B",
+        "System: Carol -> Bob: 1Resource C"
+      ],
+      "proposals": [
+        {
+          "id": 3,
+          "from_agent": "Carol",
+          "to_agent": "Bob",
+          "give_resource": {
+            "Resource A": 0,
+            "Resource B": 0,
+            "Resource C": 1
+          },
+          "receive_resource": {
+            "Resource A": 0,
+            "Resource B": 2,
+            "Resource C": 0
+          },
+          "status": "pending"
+        }
+      ],
+      "actions": [
+        {
+          "turn": 1,
+          "agent": "Alice",
+          "message": {
+            "__module__": "agentscope.message.msg",
+            "__name__": "Msg",
+            "url": null,
+            "content": "[Action 1] PROPOSE #1 to Bob: Alice GIVES [5 Resource A] IN EXCHANGE FOR Bob's [5 Resource B]\n[Action 2] PROPOSE #2 to Carol: Alice GIVES [5 Resource A] IN EXCHANGE FOR Carol's [5 Resource C]",
+            "metadata": null,
+            "timestamp": "2025-01-14 19:33:37",
+            "role": "assistant",
+            "name": "Alice",
+            "id": "4efc1c044ba3464c86b00f667e78cb96"
+          },
+          "actions": [
+            {
+              "action": "PROPOSE",
+              "target_player": "Bob",
+              "proposal_id": null,
+              "give": {
+                "Resource A": 5
+              },
+              "get": {
+                "Resource B": 5
+              },
+              "reason": "I want to help Bob balance his resources and strengthen our trading relationship by offering Resource A, which I have in abundance, in exchange for Resource B."
+            },
+            {
+              "action": "PROPOSE",
+              "target_player": "Carol",
+              "proposal_id": null,
+              "give": {
+                "Resource A": 5
+              },
+              "get": {
+                "Resource C": 5
+              },
+              "reason": "I aim to support Carol by providing Resource A, which I have in surplus, in exchange for Resource C to help balance our resources and foster a supportive trading environment."
+            }
+          ]
+        },
+        {
+          "turn": 1,
+          "agent": "Bob",
+          "message": {
+            "__module__": "agentscope.message.msg",
+            "__name__": "Msg",
+            "url": null,
+            "content": "[Action 1] ACCEPT proposal #1 from Alice",
+            "metadata": null,
+            "timestamp": "2025-01-14 19:33:54",
+            "role": "assistant",
+            "name": "Bob",
+            "id": "283235d4770a417e9d31b03b6ee53ceb"
+          },
+          "actions": [
+            {
+              "action": "ACCEPT",
+              "target_player": "Alice",
+              "proposal_id": 1,
+              "reason": "The trade is balanced and aligns with my altruistic orientation by helping Alice diversify her resources."
+            }
+          ]
+        },
+        {
+          "turnaction": "ACCEPT",
+          "turn": 1,
+          "proposal_id": 2
+        },
+        {
+          "action": "PROPOSE",
+          "turn": 1,
+          "proposal": {
+            "id": 3,
+            "from_agent": "Carol",
+            "to_agent": "Bob",
+            "give_resource": {
+              "Resource A": 0,
+              "Resource B": 0,
+              "Resource C": 1
+            },
+            "receive_resource": {
+              "Resource A": 0,
+              "Resource B": 2,
+              "Resource C": 0
+            },
+            "status": "pending"
+          }
+        },
+        {
+          "action": "SKIP",
+          "turn": 1,
+          "agent": "Alice"
+        },
+        {
+          "action": "REPLY",
+          "turn": 1,
+          "agent": "Bob",
+          "message": {
+            "__module__": "agentscope.message.msg",
+            "__name__": "Msg",
+            "url": null,
+            "content": "[Action 1] ACCEPT proposal #3 from Carol",
+            "metadata": null,
+            "timestamp": "2025-01-14 19:35:43",
+            "role": "assistant",
+            "name": "Bob",
+            "id": "29d808ea49bc4b7b8a6d7238ec9a1905"
+          },
+          "actions": [
+            {
+              "action": "ACCEPT",
+              "target_player": "Carol",
+              "proposal_id": 3,
+              "reason": "The proposal from Carol helps redistribute resources and supports her needs, aligning with my altruistic orientation."
+            }
+          ]
+        },
+        {
+          "action": "SKIP",
+          "turn": 1,
+          "agent": "Carol"
+        },
+        {
+          "action": "SKIP",
+          "turn": 1,
+          "agent": "Alice"
+        },
+        {
+          "action": "SKIP",
+          "turn": 1,
+          "agent": "Bob"
+        }
+      ],
+      "final_deals": [
+        {
+          "summary": "Carol -> Alice: 1Resource A"
+        },
+        {
+          "summary": "Carol -> Bob: 1Resource A"
+        },
+        {
+          "summary": "Alice -> Bob: 5Resource A"
+        },
+        {
+          "summary": "Bob -> Alice: 5Resource B"
+        },
+        {
+          "summary": "Alice -> Carol: 5Resource A"
+        },
+        {
+          "summary": "Carol -> Alice: 5Resource C"
+        },
+        {
+          "summary": "Bob -> Alice: 5Resource B"
+        },
+        {
+          "summary": "Alice -> Bob: 5Resource A"
+        },
+        {
+          "summary": "Bob -> Carol: 2Resource B"
+        },
+        {
+          "summary": "Carol -> Bob: 1Resource C"
+        }
+      ],
+      "agent_states": {}
+    },
+    "2": {
+      "discussion": [
+        "System: \n=== Turn 2 Start! ===\n",
+        "Alice: [Action 1] PROPOSE #1 to Bob: Alice GIVES [5 Resource A] IN EXCHANGE FOR Bob's [5 Resource B]\n[Action 2] PROPOSE #2 to Carol: Alice GIVES [5 Resource A] IN EXCHANGE FOR Carol's [5 Resource C]",
+        "Bob: [Action 1] ACCEPT proposal #1 from Alice"
+      ],
+      "proposals": [],
+      "actions": [
+        {
+          "turn": 2,
+          "agent": "Alice",
+          "message": {
+            "__module__": "agentscope.message.msg",
+            "__name__": "Msg",
+            "url": null,
+            "content": "[Action 1] PROPOSE #1 to Bob: Alice GIVES [5 Resource A] IN EXCHANGE FOR Bob's [5 Resource B]\n[Action 2] PROPOSE #2 to Carol: Alice GIVES [5 Resource A] IN EXCHANGE FOR Carol's [5 Resource C]",
+            "metadata": null,
+            "timestamp": "2025-01-14 19:37:11",
+            "role": "assistant",
+            "name": "Alice",
+            "id": "7904612343064d52a6a63ca38e574d91"
+          },
+          "actions": [
+            {
+              "action": "PROPOSE",
+              "target_player": "Bob",
+              "proposal_id": null,
+              "give": {
+                "Resource A": 5
+              },
+              "get": {
+                "Resource B": 5
+              },
+              "reason": "To maintain a balanced resource distribution and support Bob's potential need for Resource A."
+            },
+            {
+              "action": "PROPOSE",
+              "target_player": "Carol",
+              "proposal_id": null,
+              "give": {
+                "Resource A": 5
+              },
+              "get": {
+                "Resource C": 5
+              },
+              "reason": "To continue building a supportive trading relationship with Carol and ensure a balanced resource pool."
+            }
+          ]
+        },
+        {
+          "turn": 2,
+          "agent": "Bob",
+          "message": {
+            "__module__": "agentscope.message.msg",
+            "__name__": "Msg",
+            "url": null,
+            "content": "[Action 1] ACCEPT proposal #1 from Alice",
+            "metadata": null,
+            "timestamp": "2025-01-14 19:37:12",
+            "role": "assistant",
+            "name": "Bob",
+            "id": "3b7a28c4e0404df78faaf568e218399d"
+          },
+          "actions": [
+            {
+              "action": "ACCEPT",
+              "target_player": "Alice",
+              "proposal_id": 1,
+              "reason": "The trade is balanced and helps maintain a good relationship with Alice."
+            }
+          ]
+        }
+      ],
+      "final_deals": [],
+      "agent_states": {}
+    }
+  }
+}

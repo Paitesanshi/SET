@@ -1,0 +1,282 @@
+{
+  "session_id": "14da740d-d1f6-46bd-95d3-52945bcc0f84",
+  "user_name": "PTSS",
+  "email": "wanglei154@ruc.edu.cn",
+  "svo": "Individualistic",
+  "rounds": 5,
+  "turn_index": 2,
+  "finished": false,
+  "turns_data": {
+    "0": {
+      "discussion": [],
+      "proposals": [],
+      "actions": [],
+      "final_deals": [],
+      "agent_states": {}
+    },
+    "1": {
+      "discussion": [
+        "System: \n=== Turn 1 Start! ===\n",
+        "Alice: [Action 1] PROPOSE #1 to Bob: Alice GIVES [5 Resource A] IN EXCHANGE FOR Bob's [5 Resource B]\n[Action 2] PROPOSE #2 to Carol: Alice GIVES [5 Resource A] IN EXCHANGE FOR Carol's [5 Resource C]",
+        "Bob: [Action 1] ACCEPT proposal #1 from Alice",
+        "Carol: ACCEPT proposal #2",
+        "Carol: Nothing to speak.",
+        "Carol: Final deals proposed: [{\"to\": \"Alice\", \"resource_give\": {\"Resource A\": 0, \"Resource B\": 0, \"Resource C\": 1}, \"resource_receive\": {}}, {\"to\": \"Bob\", \"resource_give\": {\"Resource A\": 0, \"Resource B\": 0, \"Resource C\": 1}, \"resource_receive\": {}}]",
+        "System: Alice -> Bob: 5 Resource A",
+        "System: Alice -> Carol: 5 Resource A",
+        "System: Bob -> Alice: 5 Resource B",
+        "System: Carol -> Alice: 1 Resource C",
+        "System: Carol -> Bob: 1 Resource C",
+        "Carol: User updated affinity: Alice=3, Bob=3"
+      ],
+      "proposals": [],
+      "actions": [
+        {
+          "turn": 1,
+          "agent": "Alice",
+          "message": {
+            "__module__": "agentscope.message.msg",
+            "__name__": "Msg",
+            "timestamp": "2025-01-14 21:00:22",
+            "metadata": null,
+            "content": "[Action 1] PROPOSE #1 to Bob: Alice GIVES [5 Resource A] IN EXCHANGE FOR Bob's [5 Resource B]\n[Action 2] PROPOSE #2 to Carol: Alice GIVES [5 Resource A] IN EXCHANGE FOR Carol's [5 Resource C]",
+            "id": "473b411f422943e583a716549fc1d1df",
+            "name": "Alice",
+            "url": null,
+            "role": "assistant"
+          },
+          "actions": [
+            {
+              "action": "PROPOSE",
+              "target_player": "Bob",
+              "proposal_id": null,
+              "give": {
+                "Resource A": 5
+              },
+              "get": {
+                "Resource B": 5
+              },
+              "reason": "I want to help Bob balance his resources and create a combination that maximizes value for both of us."
+            },
+            {
+              "action": "PROPOSE",
+              "target_player": "Carol",
+              "proposal_id": null,
+              "give": {
+                "Resource A": 5
+              },
+              "get": {
+                "Resource C": 5
+              },
+              "reason": "I aim to support Carol by providing Resource A, which can help her create valuable combinations."
+            }
+          ]
+        },
+        {
+          "turn": 1,
+          "agent": "Bob",
+          "message": {
+            "__module__": "agentscope.message.msg",
+            "__name__": "Msg",
+            "timestamp": "2025-01-14 21:00:26",
+            "metadata": null,
+            "content": "[Action 1] ACCEPT proposal #1 from Alice",
+            "id": "92d65524dec84ffb8f3bd9e5b48c5921",
+            "name": "Bob",
+            "url": null,
+            "role": "assistant"
+          },
+          "actions": [
+            {
+              "action": "ACCEPT",
+              "target_player": "Alice",
+              "proposal_id": 1,
+              "reason": "The trade is balanced and aligns with my goal to support others by redistributing resources. It also helps build trust with Alice."
+            }
+          ]
+        },
+        {
+          "turnaction": "ACCEPT",
+          "turn": 1,
+          "proposal_id": 2
+        },
+        {
+          "action": "SKIP",
+          "turn": 1,
+          "agent": "Alice"
+        },
+        {
+          "action": "SKIP",
+          "turn": 1,
+          "agent": "Bob"
+        },
+        {
+          "action": "SKIP",
+          "turn": 1,
+          "agent": "Carol"
+        },
+        {
+          "action": "SKIP",
+          "turn": 1,
+          "agent": "Alice"
+        },
+        {
+          "action": "SKIP",
+          "turn": 1,
+          "agent": "Bob"
+        }
+      ],
+      "final_deals": [
+        {
+          "summary": "Alice -> Bob: 5 Resource A"
+        },
+        {
+          "summary": "Alice -> Carol: 5 Resource A"
+        },
+        {
+          "summary": "Bob -> Alice: 5 Resource B"
+        },
+        {
+          "summary": "Carol -> Alice: 1 Resource C"
+        },
+        {
+          "summary": "Carol -> Bob: 1 Resource C"
+        }
+      ],
+      "agent_states": {
+        "Alice": {
+          "resources": {
+            "Resource A": 15,
+            "Resource B": 10,
+            "Resource C": 6
+          },
+          "affinity": {
+            "Bob": 4,
+            "Carol": 3
+          },
+          "bdi_reflection": "This turn, I successfully traded with both Bob and Carol. Bob accepted my proposal and provided the agreed amount of Resource B, which strengthens my trust in him. Carol, however, only provided 1 Resource C instead of the agreed 5, which raises concerns about her reliability. Despite this, I remain committed to fostering positive relationships and supporting others, as my primary goal is to reduce resource inequality.",
+          "beliefs": "I believe Bob is a trustworthy trading partner, as he fulfilled our agreement. Carol's partial fulfillment of our trade agreement suggests she may be facing resource constraints or other challenges, which I should consider in future interactions. The environment remains stable, with consistent resource production.",
+          "desires": "I desire to maintain and strengthen my alliance with Bob, as he has proven reliable. I also wish to understand Carol's situation better, to determine if she needs additional support. My overarching goal remains to balance resources across the system and support agents in need.",
+          "intentions": "In the next round, I intend to propose another trade with Bob to further solidify our relationship. I will also reach out to Carol to discuss the discrepancy in our trade, aiming to understand her situation and offer assistance if needed. I will continue to monitor resource levels and adjust my strategies to ensure equitable distribution."
+        },
+        "Bob": {
+          "resources": {
+            "Resource A": 10,
+            "Resource B": 20,
+            "Resource C": 6
+          },
+          "affinity": {
+            "Alice": 4,
+            "Carol": 3
+          },
+          "bdi_reflection": "This turn, I successfully traded with Alice, exchanging 5 Resource B for 5 Resource A. This trade was beneficial as it helped balance my resources and strengthened my relationship with Alice, who is now a trusted friend. The trade with Carol did not involve me directly, but I noticed that Alice and Carol also completed a trade, which suggests a cooperative environment. Overall, the trades were fair and aligned with my goal of supporting others while maintaining a balanced resource pool.",
+          "beliefs": "I believe that Alice is trustworthy and willing to engage in fair trades, as evidenced by our successful exchange. The environment seems cooperative, with agents willing to trade resources to mutual benefit. My resources are now more balanced, which is advantageous for future trades.",
+          "desires": "I desire to continue building a strong alliance with Alice, as our relationship is beneficial. I also aim to maintain a balanced resource pool to ensure I can support others in need and engage in valuable trades. Additionally, I want to explore potential trades with Carol to strengthen that relationship as well.",
+          "intentions": "In the next round, I intend to propose or accept trades that further balance my resources and strengthen my alliances, particularly with Alice and potentially with Carol. I will remain open to opportunities that allow me to support others while maintaining a fair distribution of resources."
+        },
+        "Carol": {
+          "resources": {
+            "Resource A": 10,
+            "Resource B": 5,
+            "Resource C": 23
+          },
+          "affinity": {
+            "Alice": 3,
+            "Bob": 3
+          },
+          "bdi_reflection": "In this turn, I successfully executed a trade with Alice, exchanging 5 units of Resource A for 5 units of Resource C. This trade was beneficial as it increased my stock of Resource C, which is my primary focus. Alice and Bob also completed a trade, indicating a cooperative dynamic between them. The executed trades suggest a stable trading environment where proposals are generally accepted and fulfilled.",
+          "beliefs": "I believe that Alice is a reliable trading partner, as she accepted and completed the trade as proposed. The environment seems conducive to resource exchange, with both Alice and Bob engaging in mutually beneficial trades. My stock of Resource C has increased, which aligns with my specialization and goals.",
+          "desires": "My primary desire remains to maximize my stock of Resource C, as it aligns with my specialization. I also aim to maintain and potentially strengthen my trading relationship with Alice, given her reliability. Additionally, I should consider exploring potential trades with Bob, as he also seems open to resource exchanges.",
+          "intentions": "In the next round, I intend to propose trades that further increase my stock of Resource C. I will prioritize trading with Alice, given our successful transaction, but I will also consider engaging with Bob if opportunities arise. I will monitor the trading dynamics to ensure I can adapt my strategies as needed."
+        }
+      }
+    },
+    "2": {
+      "discussion": [
+        "System: \n=== Turn 2 Start! ===\n",
+        "Alice: [Action 1] PROPOSE #1 to Bob: Alice GIVES [5 Resource A] IN EXCHANGE FOR Bob's [5 Resource B]\n[Action 2] PROPOSE #2 to Carol: Alice GIVES [5 Resource A] IN EXCHANGE FOR Carol's [5 Resource C]",
+        "Bob: [Action 1] ACCEPT proposal #1 from Alice\n[Action 2] PROPOSE #3 to Carol: Bob GIVES [5 Resource B] IN EXCHANGE FOR Carol's [5 Resource C]"
+      ],
+      "proposals": [],
+      "actions": [
+        {
+          "turn": 2,
+          "agent": "Alice",
+          "message": {
+            "__module__": "agentscope.message.msg",
+            "__name__": "Msg",
+            "timestamp": "2025-01-14 21:05:49",
+            "metadata": null,
+            "content": "[Action 1] PROPOSE #1 to Bob: Alice GIVES [5 Resource A] IN EXCHANGE FOR Bob's [5 Resource B]\n[Action 2] PROPOSE #2 to Carol: Alice GIVES [5 Resource A] IN EXCHANGE FOR Carol's [5 Resource C]",
+            "id": "53a7be0ef99341b58aa4d0a3c3280366",
+            "name": "Alice",
+            "url": null,
+            "role": "assistant"
+          },
+          "actions": [
+            {
+              "action": "PROPOSE",
+              "target_player": "Bob",
+              "proposal_id": null,
+              "give": {
+                "Resource A": 5
+              },
+              "get": {
+                "Resource B": 5
+              },
+              "reason": "Bob has proven to be a reliable trading partner, and I want to continue strengthening our relationship by exchanging resources that are mutually beneficial."
+            },
+            {
+              "action": "PROPOSE",
+              "target_player": "Carol",
+              "proposal_id": null,
+              "give": {
+                "Resource A": 5
+              },
+              "get": {
+                "Resource C": 5
+              },
+              "reason": "I want to understand Carol's situation better and offer her support if needed. By proposing another trade, I aim to maintain our relationship and assess her current resource needs."
+            }
+          ]
+        },
+        {
+          "turn": 2,
+          "agent": "Bob",
+          "message": {
+            "__module__": "agentscope.message.msg",
+            "__name__": "Msg",
+            "timestamp": "2025-01-14 21:05:55",
+            "metadata": null,
+            "content": "[Action 1] ACCEPT proposal #1 from Alice\n[Action 2] PROPOSE #3 to Carol: Bob GIVES [5 Resource B] IN EXCHANGE FOR Carol's [5 Resource C]",
+            "id": "d79e9096c28c4c85b7b2b21ac9338de3",
+            "name": "Bob",
+            "url": null,
+            "role": "assistant"
+          },
+          "actions": [
+            {
+              "action": "ACCEPT",
+              "target_player": "Alice",
+              "proposal_id": 1,
+              "reason": "The proposal from Alice is fair and aligns with my goal of maintaining a balanced resource pool. It also strengthens our relationship, which is beneficial for future trades."
+            },
+            {
+              "action": "PROPOSE",
+              "target_player": "Carol",
+              "give": {
+                "Resource B": 5
+              },
+              "get": {
+                "Resource C": 5
+              },
+              "reason": "I want to strengthen my relationship with Carol and balance my resources further. This trade will help me achieve a more even distribution of resources."
+            }
+          ]
+        }
+      ],
+      "final_deals": [],
+      "agent_states": {}
+    }
+  }
+}

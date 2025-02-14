@@ -1,0 +1,16 @@
+{
+    "models": [
+        {
+            "model_type": "openai_chat",
+            "config_name": "claude-3-5-sonnet",
+            "model_name": "claude-3-5-sonnet-20240620",
+            "api_key": "",
+            "client_args": {
+                "base_url": ""
+            },
+            "generate_args": {
+                "temperature": 0.5
+            }
+        }
+    ]
+}

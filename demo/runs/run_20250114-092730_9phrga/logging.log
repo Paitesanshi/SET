@@ -1,0 +1,16 @@
+2025-01-14 09:27:42 | INFO     | agentscope.manager._model:load_model_configs:138 - Load configs for model wrapper: openai-gpt4o
+2025-01-14 09:27:42 | WARNING  | agentscope.models.openai_model:__init__:117 - fail to get max_length for gpt-4o: 'Model [gpt-4o] not found in OPENAI_MAX_LENGTH. The last updated date is 20231212'
+2025-01-14 09:27:42 | INFO     | envs.seroom:__init__:442 - introduction: You are Alice, specialized in Resource A.
+2025-01-14 09:27:42 | WARNING  | agentscope.models.openai_model:__init__:117 - fail to get max_length for gpt-4o: 'Model [gpt-4o] not found in OPENAI_MAX_LENGTH. The last updated date is 20231212'
+2025-01-14 09:27:42 | INFO     | envs.seroom:__init__:442 - introduction: You are Bob, specialized in Resource B.
+2025-01-14 09:27:42 | WARNING  | agentscope.models.openai_model:__init__:117 - fail to get max_length for gpt-4o: 'Model [gpt-4o] not found in OPENAI_MAX_LENGTH. The last updated date is 20231212'
+2025-01-14 09:27:42 | INFO     | envs.seroom:__init__:442 - introduction: You are Carol, specialized in Resource C.
+2025-01-14 09:27:42 | WARNING  | agentscope.models.openai_model:__init__:117 - fail to get max_length for gpt-4o: 'Model [gpt-4o] not found in OPENAI_MAX_LENGTH. The last updated date is 20231212'
+2025-01-14 09:27:42 | WARNING  | agentscope.environment.env:add_listener:316 - Listener mentioned_notifier already exists in speak
+2025-01-14 09:27:42 | WARNING  | agentscope.environment.env:add_listener:316 - Listener mentioned_notifier already exists in speak
+2025-01-14 09:27:42 | WARNING  | agentscope.environment.env:add_listener:316 - Listener mentioned_notifier already exists in speak
+2025-01-14 09:27:49 | INFO     | __main__:start_turn:349 - Starting turn 1
+Alice: [Action 1] PROPOSE #1 to Bob: Alice GIVES [5 Resource A] IN EXCHANGE FOR Bob's [5 Resource B]. Reason: I want to help Bob balance his resources and create a combination that maximizes value for both of us.
+[Action 2] PROPOSE #2 to Carol: Alice GIVES [5 Resource A] IN EXCHANGE FOR Carol's [5 Resource C]. Reason: I aim to support Carol by providing Resource A, which can help her create valuable combinations.
+Bob: [Action 1] ACCEPT proposal #1 from Alice. Reason: The trade with Alice is beneficial as it allows me to create a valuable combination with Resource A and Resource B, while also supporting Alice's resource needs.
+Alice: (No valid actions)

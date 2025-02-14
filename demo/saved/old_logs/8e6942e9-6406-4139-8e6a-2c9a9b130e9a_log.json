@@ -1,0 +1,94 @@
+{
+  "session_id": "8e6942e9-6406-4139-8e6a-2c9a9b130e9a",
+  "user_name": "PTSS",
+  "email": "wanglei154@ruc.edu.cn",
+  "turns": [
+    {
+      "action": "REPLY",
+      "agent": "Alice",
+      "message": {
+        "__module__": "agentscope.message.msg",
+        "__name__": "Msg",
+        "content": "[Action 1] PROPOSE #1 to Bob: Alice GIVES [5 Resource A] IN EXCHANGE FOR Bob's [5 Resource B]. Reason: I want to help Bob balance his resources and create a combination that maximizes value for both of us.\n[Action 2] PROPOSE #2 to Carol: Alice GIVES [5 Resource A] IN EXCHANGE FOR Carol's [5 Resource C]. Reason: I aim to support Carol by providing Resource A, which can help her create valuable combinations.",
+        "role": "assistant",
+        "timestamp": "2025-01-14 09:27:52",
+        "url": null,
+        "metadata": null,
+        "id": "53689b8426914d1dafcf833b05d35722",
+        "name": "Alice"
+      },
+      "actions": [
+        {
+          "action": "PROPOSE",
+          "target_player": "Bob",
+          "proposal_id": null,
+          "give": {
+            "Resource A": 5
+          },
+          "get": {
+            "Resource B": 5
+          },
+          "reason": "I want to help Bob balance his resources and create a combination that maximizes value for both of us."
+        },
+        {
+          "action": "PROPOSE",
+          "target_player": "Carol",
+          "proposal_id": null,
+          "give": {
+            "Resource A": 5
+          },
+          "get": {
+            "Resource C": 5
+          },
+          "reason": "I aim to support Carol by providing Resource A, which can help her create valuable combinations."
+        }
+      ],
+      "mini_round": 0,
+      "turn": 1
+    },
+    {
+      "action": "REPLY",
+      "agent": "Bob",
+      "message": {
+        "__module__": "agentscope.message.msg",
+        "__name__": "Msg",
+        "content": "[Action 1] ACCEPT proposal #1 from Alice. Reason: The trade with Alice is beneficial as it allows me to create a valuable combination with Resource A and Resource B, while also supporting Alice's resource needs.",
+        "role": "assistant",
+        "timestamp": "2025-01-14 09:27:54",
+        "url": null,
+        "metadata": null,
+        "id": "56b96a3221e643f18b706f28713ec62a",
+        "name": "Bob"
+      },
+      "actions": [
+        {
+          "action": "ACCEPT",
+          "target_player": "Alice",
+          "proposal_id": 1,
+          "reason": "The trade with Alice is beneficial as it allows me to create a valuable combination with Resource A and Resource B, while also supporting Alice's resource needs."
+        }
+      ],
+      "mini_round": 0,
+      "turn": 1
+    },
+    {
+      "action": "REPLY",
+      "agent": "Alice",
+      "message": {
+        "__module__": "agentscope.message.msg",
+        "__name__": "Msg",
+        "content": "(No valid actions)",
+        "role": "assistant",
+        "timestamp": "2025-01-14 09:29:18",
+        "url": null,
+        "metadata": null,
+        "id": "8b1d3d466d8443e6ac75bbd1066037cc",
+        "name": "Alice"
+      },
+      "mini_round": 1,
+      "turn": 1
+    }
+  ],
+  "max_turns": 5,
+  "max_mini_rounds": 3
+}

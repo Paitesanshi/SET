@@ -1,0 +1,847 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <title>Resource Exchange Simulation Platform</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <style>
+        body {
+            padding-top: 50px;
+        }
+
+        .hidden {
+            display: none;
+        }
+
+        .resource-status {
+            background: #f8f9fa;
+            padding: 10px;
+            border-radius: 5px;
+            margin-bottom: 15px;
+        }
+
+        .turn-status {
+            font-weight: bold;
+            color: #0d6efd;
+        }
+
+        #conversation {
+            height: 300px;
+            overflow-y: scroll;
+        }
+
+        #trade-summary {
+            height: 300px;
+            overflow-y: scroll;
+        }
+
+        .trade-proposal {
+            border: 1px solid #dee2e6;
+            padding: 15px;
+            margin-bottom: 10px;
+            border-radius: 5px;
+        }
+
+        .pending-actions {
+            background: #f8f9fa;
+            padding: 15px;
+            border-radius: 5px;
+            margin-bottom: 15px;
+        }
+
+        .pending-action-item {
+            background: white;
+            padding: 10px;
+            margin-bottom: 10px;
+            border-radius: 5px;
+            border: 1px solid #dee2e6;
+            position: relative;
+        }
+
+        .pending-action-item .delete-btn {
+            position: absolute;
+            right: 10px;
+            top: 50%;
+            transform: translateY(-50%);
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <!-- Login Section -->
+        <div id="login-section">
+            <h2 class="mb-4">Resource Exchange Simulation Platform</h2>
+            <!-- Added Information -->
+            <div class="alert alert-info">
+                <p>Your role is: <strong>Carol</strong></p>
+                <p>You will receive <strong>10</strong> units of <strong>Resource C</strong> each round</p>
+                <hr />
+                <p><strong>Affinity Level Description:</strong></p>
+                <ul>
+                    <li><strong>1</strong>: Strong negative feelings due to unpleasant history. For example, past
+                        betrayal or intentional harm.</li>
+                    <li><strong>2</strong>: Slight discomfort from previous interactions. For example, consistently
+                        aggressive bargaining or lack of mutual benefit consideration.</li>
+                    <li><strong>3</strong>: Neutral balanced feelings. For example, fair trades, keeping promises.</li>
+                    <li><strong>4</strong>: Positive bonds built through good experiences. For example, frequently
+                        proposing mutually beneficial trades.</li>
+                    <li><strong>5</strong>: Deep trust formed through consistent support. For example, willing to
+                        compromise to maintain relationship, or defending your interests in front of others.</li>
+                </ul>
+            </div>
+
+            <form id="login-form">
+                <div class="mb-3">
+                    <label for="username" class="form-label">Name</label>
+                    <input type="text" class="form-control" id="username" required />
+                </div>
+                <div class="mb-3">
+                    <label for="phone" class="form-label">Phone Number</label>
+                    <input type="tel" class="form-control" id="phone" pattern="[0-9]{11}" required />
+                </div>
+                <div class="mb-3">
+                    <label for="username" class="form-label">Test Group Number</label>
+                    <input type="text" class="form-control" id="test_group" required />
+                </div>
+                <!-- Added: Initial scoring for Alice and Bob -->
+                <div class="mb-3">
+                    <label for="alice-affinity-initial" class="form-label">Please rate your initial affinity with Alice
+                        (1-5), based on your personal understanding and preference</label>
+                    <input type="number" class="form-control" id="alice-affinity-initial" min="1" max="5" required />
+                </div>
+                <div class="mb-3">
+                    <label for="bob-affinity-initial" class="form-label">Please rate your initial affinity with Bob
+                        (1-5), based on your personal understanding and preference</label>
+                    <input type="number" class="form-control" id="bob-affinity-initial" min="1" max="5" required />
+                </div>
+
+                <button type="submit" id="login-submit-btn" class="btn btn-primary">Start Simulation</button>
+            </form>
+        </div>
+
+        <!-- Simulation Section -->
+        <div id="simulation-section" class="hidden">
+            <h3>Resource Exchange Simulation</h3>
+            <!-- Resource Status -->
+            <div class="resource-status">
+                <h5>My Resource Status (Carol)</h5>
+                <div id="resource-display"></div>
+            </div>
+
+            <!-- Round Control -->
+            <div class="my-4 d-flex align-items-center">
+                <button id="start-turn-btn" class="btn btn-primary">Start New Round</button>
+                <span id="turn-status" class="ms-3 turn-status"></span>
+            </div>
+
+            <!-- Row: Conversation / Current Round Proposal Summary -->
+            <div class="row">
+                <div class="col-md-6">
+                    <h5>Conversation</h5>
+                    <div id="conversation" class="border p-3"></div>
+                </div>
+                <div class="col-md-6">
+                    <h5>Proposal Summary</h5>
+                    <div id="trade-summary" class="border p-3"></div>
+                </div>
+            </div>
+
+            <!-- Operation Form: Discussion Phase -->
+            <div id="negotiation-section" class="mt-4 hidden">
+                <h5>Discussion Phase - Add Action</h5>
+                <select id="action-type" class="form-select mb-2">
+                    <option value="PROPOSE">Propose Trade</option>
+                    <option value="ACCEPT">Accept Proposal</option>
+                    <option value="REJECT">Reject Proposal</option>
+                    <option value="SKIP">Skip Turn</option>
+                </select>
+
+                <!-- Proposal Form -->
+                <div id="propose-form" class="mb-3">
+                    <label>Target Player</label>
+                    <select class="form-select mb-2" id="target-player">
+                        <option value="Alice">Alice</option>
+                        <option value="Bob">Bob</option>
+                    </select>
+                    <div class="mb-2">Resources to Give:</div>
+                    <div class="input-group mb-2">
+                        <span class="input-group-text">A</span>
+                        <input type="number" class="form-control" id="give-a" min="0" value="0" />
+                        <span class="input-group-text">B</span>
+                        <input type="number" class="form-control" id="give-b" min="0" value="0" />
+                        <span class="input-group-text">C</span>
+                        <input type="number" class="form-control" id="give-c" min="0" value="0" />
+                    </div>
+                    <div class="mb-2">Resources to Request:</div>
+                    <div class="input-group mb-2">
+                        <span class="input-group-text">A</span>
+                        <input type="number" class="form-control" id="get-a" min="0" value="0" />
+                        <span class="input-group-text">B</span>
+                        <input type="number" class="form-control" id="get-b" min="0" value="0" />
+                        <span class="input-group-text">C</span>
+                        <input type="number" class="form-control" id="get-c" min="0" value="0" />
+                    </div>
+                </div>
+
+                <!-- Accept/Reject Form -->
+                <div id="respond-form" class="mb-3 hidden">
+                    <label for="proposal-id">Proposal ID</label>
+                    <input type="number" class="form-control mb-2" id="proposal-id" min="1" />
+                </div>
+
+                <button id="add-action-btn" class="btn btn-secondary mb-3">Add to Action List</button>
+
+                <!-- Pending Actions List -->
+                <div class="pending-actions">
+                    <h6>Pending Actions List:</h6>
+                    <div id="pending-actions-list"></div>
+                    <div class="mt-3">
+                        <button id="submit-actions-btn" class="btn btn-success">Submit All Actions</button>
+                        <button id="clear-actions-btn" class="btn btn-outline-danger ms-2">Clear List</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Allocation Phase: Carol submits final trade plan -->
+            <div id="allocation-section" class="mt-4 hidden">
+                <h5>Allocation Phase - Please Enter Your Final Trade Allocation Plan</h5>
+                <p>(e.g., how much A/B/C to give to Alice and Bob, fill 0 if none)</p>
+                <form id="deal-form" class="mb-3">
+                    <div class="mb-3">
+                        <label class="form-label">Resources for Alice</label>
+                        <div class="input-group mb-2">
+                            <span class="input-group-text">A</span>
+                            <input type="number" class="form-control" id="give-alice-a" min="0" value="0">
+                            <span class="input-group-text">B</span>
+                            <input type="number" class="form-control" id="give-alice-b" min="0" value="0">
+                            <span class="input-group-text">C</span>
+                            <input type="number" class="form-control" id="give-alice-c" min="0" value="0">
+                        </div>
+                    </div>
+
+                    <div class="mb-3">
+                        <label class="form-label">Resources for Bob</label>
+                        <div class="input-group mb-2">
+                            <span class="input-group-text">A</span>
+                            <input type="number" class="form-control" id="give-bob-a" min="0" value="0">
+                            <span class="input-group-text">B</span>
+                            <input type="number" class="form-control" id="give-bob-b" min="0" value="0">
+                            <span class="input-group-text">C</span>
+                            <input type="number" class="form-control" id="give-bob-c" min="0" value="0">
+                        </div>
+                    </div>
+                    <button type="submit" id="deal-submit-btn" class="btn btn-primary">Submit Allocation Plan</button>
+                </form>
+            </div>
+
+            <!-- Rate Alice and Bob after round ends -->
+            <div id="affinity-section" class="hidden mt-4">
+                <h5>Rate Alice and Bob (1-5)</h5>
+                <form id="affinity-form" class="mb-3">
+                    <div class="mb-3">
+                        <label for="affinity-alice" class="form-label">Rate Alice</label>
+                        <input type="number" class="form-control" id="affinity-alice" min="1" max="5" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="affinity-bob" class="form-label">Rate Bob</label>
+                        <input type="number" class="form-control" id="affinity-bob" min="1" max="5" required>
+                    </div>
+                    <button type="submit" id="affinity-submit-btn" class="btn btn-primary">Submit Ratings</button>
+                </form>
+            </div>
+        </div>
+
+        <div id="result-section" class="hidden mt-4">
+            <pre id="simulation-result" class="border p-3"></pre>
+        </div>
+    </div>
+
+    <!-- Bootstrap JS + axios -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            // State variables remain unchanged
+            const state = {
+                sessionId: null,
+                currentTurn: 0,
+                currentMiniRound: 0,
+                pendingActions: []
+            };
+
+            // Form elements remain unchanged
+            const actionForm = {
+                actionType: document.getElementById("action-type"),
+                proposeForm: document.getElementById("propose-form"),
+                respondForm: document.getElementById("respond-form"),
+                targetPlayer: document.getElementById("target-player"),
+                giveA: document.getElementById("give-a"),
+                giveB: document.getElementById("give-b"),
+                giveC: document.getElementById("give-c"),
+                getA: document.getElementById("get-a"),
+                getB: document.getElementById("get-b"),
+                getC: document.getElementById("get-c"),
+                proposalId: document.getElementById("proposal-id")
+            };
+
+            // Section elements remain unchanged
+            const sections = {
+                login: document.getElementById("login-section"),
+                simulation: document.getElementById("simulation-section"),
+                negotiation: document.getElementById("negotiation-section"),
+                allocation: document.getElementById("allocation-section"),
+                result: document.getElementById("result-section"),
+                affinity: document.getElementById("affinity-section")
+            };
+
+            // Display elements remain unchanged
+            const displays = {
+                turnStatus: document.getElementById("turn-status"),
+                conversation: document.getElementById("conversation"),
+                tradeSummary: document.getElementById("trade-summary"),
+                resources: document.getElementById("resource-display"),
+                pendingActions: document.getElementById("pending-actions-list"),
+                simulationResult: document.getElementById("simulation-result")
+            };
+
+            // Buttons remain unchanged
+            const buttons = {
+                startTurn: document.getElementById("start-turn-btn"),
+                addAction: document.getElementById("add-action-btn"),
+                submitActions: document.getElementById("submit-actions-btn"),
+                clearActions: document.getElementById("clear-actions-btn"),
+                loginSubmit: document.getElementById("login-submit-btn"),
+                dealSubmit: document.getElementById("deal-submit-btn"),
+                affinitySubmit: document.getElementById("affinity-submit-btn")
+            };
+
+            // Login form submission
+            document.getElementById("login-form").addEventListener("submit", async function (e) {
+                e.preventDefault();
+                const username = document.getElementById("username").value.trim();
+                const phone = document.getElementById("phone").value.trim();
+                const testGroup = document.getElementById("test_group").value.trim();
+                const aliceAffinityInitial = parseInt(document.getElementById("alice-affinity-initial").value);
+                const bobAffinityInitial = parseInt(document.getElementById("bob-affinity-initial").value);
+
+                // Disable "Start Simulation" button
+                buttons.loginSubmit.disabled = true;
+
+                try {
+                    const res = await axios.post("/login", {
+                        username,
+                        phone,
+                        test_group: testGroup,
+                        alice_affinity: aliceAffinityInitial,
+                        bob_affinity: bobAffinityInitial
+                    });
+                    if (res.data.success) {
+                        state.sessionId = res.data.session_id;
+                        sections.login.classList.add("hidden");
+                        sections.simulation.classList.remove("hidden");
+                    } else {
+                        alert("Login failed: " + res.data.message);
+                    }
+                } catch (err) {
+                    console.error(err);
+                    alert("Error during login");
+                } finally {
+                    buttons.loginSubmit.disabled = false;
+                }
+            });
+
+            // Click "Start New Round" button
+            buttons.startTurn.addEventListener("click", async function () {
+                buttons.startTurn.disabled = true;
+                displays.turnStatus.textContent = "Requesting to start new round, please wait for other players...";
+
+                try {
+                    await loadSimulationData();
+                    const res = await axios.post("/start_turn", { session_id: state.sessionId });
+                    if (res.data.success) {
+                        state.currentTurn = res.data.current_turn;
+                        state.currentMiniRound = res.data.current_mini_round;
+                        state.pendingActions = [];
+
+                        displays.turnStatus.textContent =
+                            `Round ${state.currentTurn} - negotiation round ${state.currentMiniRound}`;
+
+                        await updateConversation(res.data.conversation);
+                        updateTradeSummary(res.data.trade_summary);
+                        updateResourceDisplay(res.data.resources);
+                        updatePendingActionsList();
+
+                        // if (res.data.turn_ended) {
+                        //     // Round ended
+                        sections.negotiation.classList.remove("hidden");
+                        sections.allocation.classList.add("hidden");
+                        buttons.startTurn.disabled = true;
+                        //}
+                    } else {
+                        alert("Action submission failed: " + res.data.message);
+                    }
+                } catch (err) {
+                    console.error(err);
+                    alert("Error while submitting actions");
+                } finally {
+                    buttons.submitActions.disabled = false;
+                }
+            });
+
+            actionForm.actionType.addEventListener("change", function () {
+                const val = this.value;
+                if (val === "PROPOSE") {
+                    actionForm.proposeForm.classList.remove("hidden");
+                    actionForm.respondForm.classList.add("hidden");
+                } else if (val === "ACCEPT" || val === "REJECT") {
+                    actionForm.proposeForm.classList.add("hidden");
+                    actionForm.respondForm.classList.remove("hidden");
+                } else {
+                    actionForm.proposeForm.classList.add("hidden");
+                    actionForm.respondForm.classList.add("hidden");
+                }
+            });
+
+            // Add action button
+            buttons.addAction.addEventListener("click", function () {
+                buttons.addAction.disabled = true;
+
+                const actionType = actionForm.actionType.value;
+                let action = { action: actionType };
+
+                if (actionType === "PROPOSE") {
+                    action.target_player = actionForm.targetPlayer.value;
+                    action.give = {
+                        "Resource A": parseInt(actionForm.giveA.value) || 0,
+                        "Resource B": parseInt(actionForm.giveB.value) || 0,
+                        "Resource C": parseInt(actionForm.giveC.value) || 0
+                    };
+                    action.get = {
+                        "Resource A": parseInt(actionForm.getA.value) || 0,
+                        "Resource B": parseInt(actionForm.getB.value) || 0,
+                        "Resource C": parseInt(actionForm.getC.value) || 0
+                    };
+
+                    // 验证提议是否有效
+                    const hasGive = Object.values(action.give).some(v => v > 0);
+                    const hasGet = Object.values(action.get).some(v => v > 0);
+                    if (!hasGive && !hasGet) {
+                        alert("Resouce need greater than 0!");
+                        buttons.addAction.disabled = false;
+                        return;
+                    }
+                }
+                else if (actionType === "ACCEPT" || actionType === "REJECT") {
+                    const proposalId = parseInt(actionForm.proposalId.value);
+                    if (!proposalId || proposalId < 1) {
+                        alert("Please enter valid proposal ID.");
+                        buttons.addAction.disabled = false;
+                        return;
+                    }
+                    action.proposal_id = proposalId;
+                }
+
+                // 添加到待处理列表
+                state.pendingActions.push(action);
+                updatePendingActionsList();
+
+                // 重置表单
+                resetActionForm();
+
+                // 添加完成后，再恢复按钮
+                buttons.addAction.disabled = false;
+            });
+
+            // Clear actions button
+            buttons.clearActions.addEventListener("click", function () {
+                buttons.clearActions.disabled = true;
+                state.pendingActions = [];
+                updatePendingActionsList();
+                buttons.clearActions.disabled = false;
+            });
+
+            // Submit all actions button
+            buttons.submitActions.addEventListener("click", async function () {
+                buttons.submitActions.disabled = true;
+
+                if (state.pendingActions.length === 0) {
+                    alert("Please add action first");
+                    buttons.submitActions.disabled = false;
+                    return;
+                }
+
+                // 显示等待提示（核心需求）
+                displays.turnStatus.textContent = "Submiting actions, please wait...";
+
+                try {
+                    const res = await axios.post("/submit_action", {
+                        session_id: state.sessionId,
+                        actions: state.pendingActions
+                    });
+
+                    if (res.data.success) {
+                        await updateConversation(res.data.conversation);
+                        displays.turnStatus.textContent = "Please submit action.";
+                        updateTradeSummary(res.data.trade_summary);
+                        updateResourceDisplay(res.data.resources);
+
+                        state.currentMiniRound = res.data.current_mini_round;
+                        displays.turnStatus.textContent =
+                            `Round${res.data.current_turn} - negotiation_round ${state.currentMiniRound}`;
+
+                        // 清空待处理列表
+                        state.pendingActions = [];
+                        updatePendingActionsList();
+
+                        if (res.data.turn_ended) {
+                            // 回合结束
+                            sections.negotiation.classList.add("hidden");
+                            sections.allocation.classList.remove("hidden");
+                            // 禁用开始新回合按钮（可根据业务逻辑决定是否禁用）
+                            buttons.startTurn.disabled = true;
+                        }
+                    } else {
+                        alert("Error: " + res.data.message);
+                    }
+                } catch (err) {
+                    console.error(err);
+                    alert("Error: " + err);
+                } finally {
+                    buttons.submitActions.disabled = false;
+                }
+            });
+
+
+            // Deal form submission
+            document.getElementById("deal-form").addEventListener("submit", async function (e) {
+                e.preventDefault();
+
+                buttons.dealSubmit.disabled = true;
+                displays.turnStatus.textContent = "Submitting allocation plan, please wait for other players...";
+
+                const giveAliceA = parseInt(document.getElementById("give-alice-a").value) || 0;
+                const giveAliceB = parseInt(document.getElementById("give-alice-b").value) || 0;
+                const giveAliceC = parseInt(document.getElementById("give-alice-c").value) || 0;
+                const giveBobA = parseInt(document.getElementById("give-bob-a").value) || 0;
+                const giveBobB = parseInt(document.getElementById("give-bob-b").value) || 0;
+                const giveBobC = parseInt(document.getElementById("give-bob-c").value) || 0;
+
+                const deals = [
+                    {
+                        to: "Alice",
+                        resource_give: {
+                            "Resource A": giveAliceA,
+                            "Resource B": giveAliceB,
+                            "Resource C": giveAliceC
+                        },
+                        resource_receive: {}
+                    },
+                    {
+                        to: "Bob",
+                        resource_give: {
+                            "Resource A": giveBobA,
+                            "Resource B": giveBobB,
+                            "Resource C": giveBobC
+                        },
+                        resource_receive: {}
+                    }
+                ];
+
+                try {
+                    const res = await axios.post("/submit_allocation", {
+                        session_id: state.sessionId,
+                        deals: deals
+                    });
+
+                    if (res.data.success) {
+                        displays.turnStatus.textContent = "Please rate other players";
+                        updateConversation(res.data.conversation);
+                        updateResourceDisplay(res.data.resources);
+
+                        if (res.data.round_settled) {
+                            displays.tradeSummary.innerHTML = "";
+                            res.data.trade_summary.forEach(line => {
+                                const p = document.createElement("p");
+                                p.textContent = line;
+                                displays.tradeSummary.appendChild(p);
+                            });
+
+                            sections.affinity.classList.remove("hidden");
+                            sections.allocation.classList.add("hidden");
+                            resetAllocationForm();
+                        }
+                    } else {
+                        alert("Failed to submit allocation plan: " + res.data.message);
+                    }
+                } catch (err) {
+                    console.error(err);
+                    alert("Error while submitting allocation plan");
+                } finally {
+                    buttons.dealSubmit.disabled = false;
+                }
+            });
+
+            // Rating form submission
+            document.getElementById("affinity-form").addEventListener("submit", async function (e) {
+                e.preventDefault();
+
+                buttons.affinitySubmit.disabled = true;
+                displays.turnStatus.textContent = "Submitting ratings, please wait for other players...";
+
+                const aliceAffinity = parseInt(document.getElementById("affinity-alice").value);
+                const bobAffinity = parseInt(document.getElementById("affinity-bob").value);
+
+                if (
+                    isNaN(aliceAffinity) || isNaN(bobAffinity) ||
+                    aliceAffinity < 1 || aliceAffinity > 5 ||
+                    bobAffinity < 1 || bobAffinity > 5
+                ) {
+                    alert("Please ensure ratings for Alice and Bob are between 1 and 5");
+                    buttons.affinitySubmit.disabled = false;
+                    return;
+                }
+
+                try {
+                    const res = await axios.post("/submit_affinity", {
+                        session_id: state.sessionId,
+                        turn: state.currentTurn,
+                        alice_affinity: aliceAffinity,
+                        bob_affinity: bobAffinity
+                    });
+
+                    if (res.data.success) {
+                        sections.affinity.classList.add("hidden");
+
+                        if (res.data.simulation_finished) {
+                            sections.simulation.classList.add("hidden");
+                            sections.result.classList.remove("hidden");
+
+                            let finalHTML = `
+                        <h4 class="mb-3">Simulation Complete</h4>
+                        <div class="card">
+                            <div class="card-body">
+                                <h5 class="card-title">Congratulations on completing the simulation!</h5>
+                                <p class="card-text">Your final resource amounts are:</p>
+                                <ul class="list-group list-group-flush mb-3">
+                    `;
+
+                            if (res.data.final_resources) {
+                                for (const [rName, rAmount] of Object.entries(res.data.final_resources)) {
+                                    finalHTML += `<li class="list-group-item">${rName}: ${rAmount}</li>`;
+                                }
+                            }
+
+                            finalHTML += `</ul>`;
+
+                            if (typeof res.data.final_value !== "undefined") {
+                                finalHTML += `<p class="fw-bold">Total Resource Value: ${res.data.final_value}</p>`;
+                            }
+
+                            finalHTML += `
+                            </div>
+                        </div>
+                    `;
+
+                            displays.simulationResult.innerHTML = finalHTML;
+                        } else {
+                            buttons.startTurn.disabled = false;
+                            displays.turnStatus.textContent =
+                                `Round ${res.data.current_turn} completed, you can start the next round`;
+                            alert("Ratings submitted successfully, click \"Start New Round\" to continue!");
+                        }
+                    } else {
+                        alert("Failed to submit ratings: " + res.data.message);
+                    }
+                } catch (err) {
+                    console.error(err);
+                    alert("Error while submitting ratings");
+                } finally {
+                    buttons.affinitySubmit.disabled = false;
+                }
+            });
+
+            /**
+             * Helper functions
+             */
+
+            // Load simulation data
+            async function loadSimulationData() {
+                try {
+                    const res = await axios.get("/get_simulation_data", {
+                        params: { session_id: state.sessionId }
+                    });
+
+                    if (res.data.success) {
+                        updateResourceDisplay(res.data.resources);
+                        state.currentTurn = res.data.current_turn;
+                        state.currentMiniRound = res.data.current_mini_round;
+                    } else {
+                        alert("Failed to load simulation data");
+                    }
+                } catch (err) {
+                    console.error(err);
+                    alert("Error while loading simulation data");
+                }
+            }
+
+            function updatePendingActionsList() {
+                displays.pendingActions.innerHTML = "";
+                state.pendingActions.forEach((action, index) => {
+                    const div = document.createElement("div");
+                    div.className = "pending-action-item";
+                    let content = `<strong>Action ${index + 1}:</strong> `;
+
+                    if (action.action === "PROPOSE") {
+                        content += `Propose trade to ${action.target_player}<br>`;
+                        content += "Give: ";
+                        content += Object.entries(action.give)
+                            .filter(([_, v]) => v > 0)
+                            .map(([k, v]) => `${k.split(" ")[1]}×${v}`)
+                            .join(", ") || "none";
+                        content += "<br>Request: ";
+                        content += Object.entries(action.get)
+                            .filter(([_, v]) => v > 0)
+                            .map(([k, v]) => `${k.split(" ")[1]}×${v}`)
+                            .join(", ") || "none";
+                    } else if (action.action === "ACCEPT") {
+                        content += `Accept proposal #${action.proposal_id}`;
+                    } else if (action.action === "REJECT") {
+                        content += `Reject proposal #${action.proposal_id}`;
+                    } else {
+                        content += "Skip turn";
+                    }
+
+                    const deleteBtn = document.createElement("button");
+                    deleteBtn.className = "btn btn-sm btn-outline-danger delete-btn";
+                    deleteBtn.textContent = "Delete";
+                    deleteBtn.onclick = () => {
+                        state.pendingActions.splice(index, 1);
+                        updatePendingActionsList();
+                    };
+
+                    div.innerHTML = content;
+                    div.appendChild(deleteBtn);
+                    displays.pendingActions.appendChild(div);
+                });
+            }
+
+            async function updateConversation(conversation) {
+                displays.conversation.innerHTML = "";
+                const len = conversation.length;
+                let needDelay = false;
+                let delayedIndices = [];
+
+                if (len >= 2) {
+                    const lastMsg = conversation[len - 1];
+                    const secondLastMsg = conversation[len - 2];
+
+                    if (secondLastMsg.name === "Alice" && lastMsg.name === "Bob") {
+                        needDelay = true;
+                        delayedIndices = [len - 2, len - 1];
+                    }
+                }
+
+                function createMessageDiv(msg) {
+                    const messageDiv = document.createElement("div");
+                    messageDiv.className = "mb-3";
+
+                    const nameHeader = document.createElement("strong");
+                    nameHeader.textContent = `${msg.name}:`;
+                    messageDiv.appendChild(nameHeader);
+
+                    const actions = msg.content.split("[Action");
+                    actions.forEach((part, idx) => {
+                        if (part.trim()) {
+                            const actionP = document.createElement("p");
+                            actionP.className = "mb-1 ms-3";
+                            actionP.textContent = (idx === 0) ? part : "[Action" + part;
+                            messageDiv.appendChild(actionP);
+                        }
+                    });
+
+                    return messageDiv;
+                }
+
+                function showMessageInstantly(msgIndex) {
+                    const msgDiv = createMessageDiv(conversation[msgIndex]);
+                    displays.conversation.appendChild(msgDiv);
+                    displays.conversation.scrollTop = displays.conversation.scrollHeight;
+                }
+
+                if (!needDelay) {
+                    for (let i = 0; i < conversation.length; i++) {
+                        showMessageInstantly(i);
+                    }
+                    return;
+                }
+
+                const firstDelayIdx = delayedIndices[0];
+                const secondDelayIdx = delayedIndices[1];
+
+                // Show all messages before Alice's message instantly
+                for (let i = 0; i < firstDelayIdx; i++) {
+                    showMessageInstantly(i);
+                }
+
+                // Show Alice's message
+                showMessageInstantly(firstDelayIdx);
+
+                // Show Bob's message
+                showMessageInstantly(secondDelayIdx);
+            }
+
+            function updateTradeSummary(summaryLines) {
+                displays.tradeSummary.innerHTML = "";
+                summaryLines.forEach(line => {
+                    const p = document.createElement("p");
+                    p.textContent = line;
+                    displays.tradeSummary.appendChild(p);
+                });
+                displays.tradeSummary.scrollTop = displays.tradeSummary.scrollHeight;
+            }
+
+            function updateResourceDisplay(resources) {
+                displays.resources.innerHTML = "";
+                let html = "<div class='row'>";
+                for (const [res, amt] of Object.entries(resources)) {
+                    html += `
+                <div class="col-md-4">
+                    <div class="card mb-2">
+                        <div class="card-body">
+                            <h6 class="card-title">${res}</h6>
+                            <p class="card-text">${amt}</p>
+                        </div>
+                    </div>
+                </div>`;
+                }
+                html += "</div>";
+                displays.resources.innerHTML = html;
+            }
+
+            function resetActionForm() {
+                actionForm.giveA.value = "0";
+                actionForm.giveB.value = "0";
+                actionForm.giveC.value = "0";
+                actionForm.getA.value = "0";
+                actionForm.getB.value = "0";
+                actionForm.getC.value = "0";
+                actionForm.proposalId.value = "";
+            }
+
+            function resetAllocationForm() {
+                document.getElementById("give-alice-a").value = "0";
+                document.getElementById("give-alice-b").value = "0";
+                document.getElementById("give-alice-c").value = "0";
+                document.getElementById("give-bob-a").value = "0";
+                document.getElementById("give-bob-b").value = "0";
+                document.getElementById("give-bob-c").value = "0";
+            }
+        });
+    </script>
+</body>
+
+</html>

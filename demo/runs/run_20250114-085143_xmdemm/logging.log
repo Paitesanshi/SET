@@ -1,0 +1,18 @@
+2025-01-14 08:51:51 | INFO     | agentscope.manager._model:load_model_configs:138 - Load configs for model wrapper: openai-gpt4o
+2025-01-14 08:51:51 | WARNING  | agentscope.models.openai_model:__init__:117 - fail to get max_length for gpt-4o: 'Model [gpt-4o] not found in OPENAI_MAX_LENGTH. The last updated date is 20231212'
+2025-01-14 08:51:51 | INFO     | envs.seroom:__init__:442 - introduction: You are Alice, specialized in Resource A.
+2025-01-14 08:51:51 | WARNING  | agentscope.models.openai_model:__init__:117 - fail to get max_length for gpt-4o: 'Model [gpt-4o] not found in OPENAI_MAX_LENGTH. The last updated date is 20231212'
+2025-01-14 08:51:51 | INFO     | envs.seroom:__init__:442 - introduction: You are Bob, specialized in Resource B.
+2025-01-14 08:51:51 | WARNING  | agentscope.models.openai_model:__init__:117 - fail to get max_length for gpt-4o: 'Model [gpt-4o] not found in OPENAI_MAX_LENGTH. The last updated date is 20231212'
+2025-01-14 08:51:51 | INFO     | envs.seroom:__init__:442 - introduction: You are Carol, specialized in Resource C.
+2025-01-14 08:51:51 | WARNING  | agentscope.models.openai_model:__init__:117 - fail to get max_length for gpt-4o: 'Model [gpt-4o] not found in OPENAI_MAX_LENGTH. The last updated date is 20231212'
+2025-01-14 08:51:51 | WARNING  | agentscope.environment.env:add_listener:316 - Listener mentioned_notifier already exists in speak
+2025-01-14 08:51:51 | WARNING  | agentscope.environment.env:add_listener:316 - Listener mentioned_notifier already exists in speak
+2025-01-14 08:51:51 | WARNING  | agentscope.environment.env:add_listener:316 - Listener mentioned_notifier already exists in speak
+2025-01-14 08:51:52 | WARNING  | peace_set:_want_to_speak:693 - Alice _want_to_speak LLM error:'ResourceAgent' object has no attribute 'self'
+2025-01-14 08:51:53 | WARNING  | peace_set:_want_to_speak:693 - Bob _want_to_speak LLM error:'ResourceAgent' object has no attribute 'self'
+2025-01-14 08:52:00 | INFO     | __main__:start_turn:244 - Starting turn 1
+2025-01-14 08:52:00 | WARNING  | peace_set:_want_to_speak:693 - Alice _want_to_speak LLM error:'ResourceAgent' object has no attribute 'self'
+2025-01-14 08:52:01 | WARNING  | peace_set:_want_to_speak:693 - Bob _want_to_speak LLM error:'ResourceAgent' object has no attribute 'self'
+2025-01-14 08:52:02 | WARNING  | peace_set:_want_to_speak:693 - Alice _want_to_speak LLM error:'ResourceAgent' object has no attribute 'self'
+2025-01-14 08:52:02 | WARNING  | peace_set:_want_to_speak:693 - Bob _want_to_speak LLM error:'ResourceAgent' object has no attribute 'self'

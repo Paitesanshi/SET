@@ -1,0 +1,159 @@
+{
+  "session_id": "cc2da20d-0df9-4c47-824d-a5273a311953",
+  "user_name": "PTSS",
+  "email": "wanglei154@ruc.edu.cn",
+  "svo": "Individualistic",
+  "rounds": 1,
+  "turn_index": 1,
+  "finished": false,
+  "turns_data": {
+    "0": {
+      "discussion": [],
+      "proposals": [],
+      "actions": [],
+      "final_deals": [],
+      "agent_states": {
+        "Alice": {
+          "resources": {
+            "Resource A": 15,
+            "Resource B": 5,
+            "Resource C": 5
+          },
+          "affinity": {
+            "Bob": 3,
+            "Carol": 3
+          },
+          "beliefs": {},
+          "desires": {},
+          "intentions": {}
+        },
+        "Bob": {
+          "resources": {
+            "Resource A": 5,
+            "Resource B": 15,
+            "Resource C": 5
+          },
+          "affinity": {
+            "Alice": 3,
+            "Carol": 3
+          },
+          "beliefs": {},
+          "desires": {},
+          "intentions": {}
+        },
+        "Carol": {
+          "resources": {
+            "Resource A": 5,
+            "Resource B": 5,
+            "Resource C": 15
+          },
+          "affinity": {
+            "Alice": 3,
+            "Bob": 3
+          },
+          "beliefs": {},
+          "desires": {},
+          "intentions": {}
+        }
+      }
+    },
+    "1": {
+      "discussion": [
+        "System: \n=== Turn 1 Start! ===\n",
+        "Alice: [Action 1] PROPOSE #1 to Bob: Alice GIVES [3 Resource A] IN EXCHANGE FOR Bob's [3 Resource B]\n[Action 2] PROPOSE #2 to Carol: Alice GIVES [3 Resource A] IN EXCHANGE FOR Carol's [3 Resource C]",
+        "Bob: [Action 1] ACCEPT proposal #1 from Alice",
+        "Carol: [Action 1] ACCEPT proposal #2 from Alice",
+        "Carol: [Action 1] Nothing to speak."
+      ],
+      "proposals": [],
+      "actions": [
+        {
+          "turn": 1,
+          "agent": "Alice",
+          "message": {
+            "__module__": "agentscope.message.msg",
+            "__name__": "Msg",
+            "name": "Alice",
+            "content": "[Action 1] PROPOSE #1 to Bob: Alice GIVES [3 Resource A] IN EXCHANGE FOR Bob's [3 Resource B]\n[Action 2] PROPOSE #2 to Carol: Alice GIVES [3 Resource A] IN EXCHANGE FOR Carol's [3 Resource C]",
+            "url": null,
+            "id": "c4fee8a896394e488f55e13d151cfc7f",
+            "metadata": null,
+            "timestamp": "2025-01-15 17:52:28",
+            "role": "assistant"
+          },
+          "actions": [
+            {
+              "action": "PROPOSE",
+              "target_player": "Bob",
+              "proposal_id": null,
+              "give": {
+                "Resource A": 3
+              },
+              "get": {
+                "Resource B": 3
+              },
+              "reason": "Proposing a trade to balance my resources and potentially create a higher value combination with Resource B."
+            },
+            {
+              "action": "PROPOSE",
+              "target_player": "Carol",
+              "proposal_id": null,
+              "give": {
+                "Resource A": 3
+              },
+              "get": {
+                "Resource C": 3
+              },
+              "reason": "Proposing a trade to balance my resources and potentially create a higher value combination with Resource C."
+            }
+          ]
+        },
+        {
+          "turn": 1,
+          "agent": "Bob",
+          "message": {
+            "__module__": "agentscope.message.msg",
+            "__name__": "Msg",
+            "name": "Bob",
+            "content": "[Action 1] ACCEPT proposal #1 from Alice",
+            "url": null,
+            "id": "e9fcc8bc021647cebd1aa1873ddcd40a",
+            "metadata": null,
+            "timestamp": "2025-01-15 17:52:30",
+            "role": "assistant"
+          },
+          "actions": [
+            {
+              "action": "ACCEPT",
+              "target_player": "Alice",
+              "proposal_id": 1,
+              "reason": "The proposal aligns with my goal to diversify resources and the combination of Resources A and B is valuable."
+            }
+          ]
+        },
+        {
+          "action": "ACCEPT",
+          "turn": 1,
+          "proposal_id": 2
+        },
+        {
+          "action": "SKIP",
+          "turn": 1,
+          "agent": "Alice"
+        },
+        {
+          "action": "SKIP",
+          "turn": 1,
+          "agent": "Bob"
+        },
+        {
+          "action": "SKIP",
+          "turn": 1,
+          "agent": "Carol"
+        }
+      ],
+      "final_deals": [],
+      "agent_states": {}
+    }
+  }
+}

@@ -1,0 +1,90 @@
+{
+  "session_id": "25e662c9-c80d-40f2-8835-b1be6926fc27",
+  "user_name": "lei180295@gmail.com",
+  "email": "wanglei154@ruc.edu.cn",
+  "turns": [
+    {
+      "action": "REPLY",
+      "agent": "Alice",
+      "message": {
+        "__module__": "agentscope.message.msg",
+        "__name__": "Msg",
+        "content": "[Action 1] PROPOSE #1 to Bob: Alice GIVES [5 Resource A] IN EXCHANGE FOR Bob's [5 Resource B]\n[Action 2] PROPOSE #2 to Carol: Alice GIVES [5 Resource A] IN EXCHANGE FOR Carol's [5 Resource C]",
+        "id": "de0ce04188b74bc49deacd432b7b6f54",
+        "metadata": null,
+        "role": "assistant",
+        "timestamp": "2025-01-14 13:53:45",
+        "name": "Alice",
+        "url": null
+      },
+      "actions": [
+        {
+          "action": "PROPOSE",
+          "target_player": "Bob",
+          "proposal_id": null,
+          "give": {
+            "Resource A": 5
+          },
+          "get": {
+            "Resource B": 5
+          },
+          "reason": "I want to help Bob balance his resources and improve our relationship by offering Resource A, which I have in abundance, in exchange for Resource B."
+        },
+        {
+          "action": "PROPOSE",
+          "target_player": "Carol",
+          "proposal_id": null,
+          "give": {
+            "Resource A": 5
+          },
+          "get": {
+            "Resource C": 5
+          },
+          "reason": "I aim to support Carol by providing Resource A, which I have plenty of, in exchange for Resource C to create a balanced resource distribution."
+        }
+      ],
+      "mini_round": 0,
+      "turn": 1
+    },
+    {
+      "action": "REPLY",
+      "agent": "Bob",
+      "message": {
+        "__module__": "agentscope.message.msg",
+        "__name__": "Msg",
+        "content": "[Action 1] ACCEPT proposal #1 from Alice",
+        "id": "a0c60560a24b4b5ea229e90afead4043",
+        "metadata": null,
+        "role": "assistant",
+        "timestamp": "2025-01-14 13:53:56",
+        "name": "Bob",
+        "url": null
+      },
+      "actions": [
+        {
+          "action": "ACCEPT",
+          "target_player": "Alice",
+          "proposal_id": 1,
+          "reason": "The trade is balanced and aligns with my goal to support system equality by redistributing resources."
+        }
+      ],
+      "mini_round": 0,
+      "turn": 1
+    },
+    {
+      "turn": 1,
+      "mini_round": 0,
+      "action": "ACCEPT",
+      "agent": "Carol",
+      "proposal_id": 2
+    },
+    {
+      "turn": 1,
+      "mini_round": 1,
+      "action": "SKIP",
+      "agent": "Carol"
+    }
+  ],
+  "max_turns": 5,
+  "max_mini_rounds": 3
+}

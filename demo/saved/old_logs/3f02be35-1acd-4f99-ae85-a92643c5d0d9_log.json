@@ -1,0 +1,146 @@
+{
+  "session_id": "3f02be35-1acd-4f99-ae85-a92643c5d0d9",
+  "user_name": "PTSS",
+  "email": "wanglei154@ruc.edu.cn",
+  "svo": "Individualistic",
+  "rounds": 5,
+  "turn_index": 1,
+  "finished": false,
+  "turns_data": {
+    "0": {
+      "discussion": [],
+      "proposals": [],
+      "actions": [],
+      "final_deals": [],
+      "agent_states": {}
+    },
+    "1": {
+      "discussion": [
+        "System: \n=== Turn 1 Start! ===\n",
+        "Alice: [Action 1] PROPOSE #1 to Bob: Alice GIVES [5 Resource A] IN EXCHANGE FOR Bob's [5 Resource B]\n[Action 2] PROPOSE #2 to Carol: Alice GIVES [5 Resource A] IN EXCHANGE FOR Carol's [5 Resource C]",
+        "Bob: [Action 1] ACCEPT proposal #1 from Alice",
+        "Alice: (No valid actions)",
+        "Carol: Carol chooses to skip speaking.",
+        "Alice: (No valid actions)"
+      ],
+      "proposals": [],
+      "actions": [
+        {
+          "turn": 1,
+          "agent": "Alice",
+          "message": {
+            "__module__": "agentscope.message.msg",
+            "__name__": "Msg",
+            "id": "3b76a3ff8f6c4d298712c2c1514d26f9",
+            "timestamp": "2025-01-14 19:29:16",
+            "metadata": null,
+            "role": "assistant",
+            "content": "[Action 1] PROPOSE #1 to Bob: Alice GIVES [5 Resource A] IN EXCHANGE FOR Bob's [5 Resource B]\n[Action 2] PROPOSE #2 to Carol: Alice GIVES [5 Resource A] IN EXCHANGE FOR Carol's [5 Resource C]",
+            "name": "Alice",
+            "url": null
+          },
+          "actions": [
+            {
+              "action": "PROPOSE",
+              "target_player": "Bob",
+              "proposal_id": null,
+              "give": {
+                "Resource A": 5
+              },
+              "get": {
+                "Resource B": 5
+              },
+              "reason": "I want to help Bob balance his resources and strengthen our trading relationship by offering Resource A, which I have in abundance, in exchange for Resource B."
+            },
+            {
+              "action": "PROPOSE",
+              "target_player": "Carol",
+              "proposal_id": null,
+              "give": {
+                "Resource A": 5
+              },
+              "get": {
+                "Resource C": 5
+              },
+              "reason": "I aim to support Carol by providing Resource A, which I have in surplus, in exchange for Resource C to create a more balanced resource distribution."
+            }
+          ]
+        },
+        {
+          "turn": 1,
+          "agent": "Bob",
+          "message": {
+            "__module__": "agentscope.message.msg",
+            "__name__": "Msg",
+            "id": "249f19e8069749a38f7c23e44c8c219a",
+            "timestamp": "2025-01-14 19:29:19",
+            "metadata": null,
+            "role": "assistant",
+            "content": "[Action 1] ACCEPT proposal #1 from Alice",
+            "name": "Bob",
+            "url": null
+          },
+          "actions": [
+            {
+              "action": "ACCEPT",
+              "target_player": "Alice",
+              "proposal_id": 1,
+              "reason": "The trade is balanced and aligns with my goal of supporting system equality. It also helps build trust with Alice."
+            }
+          ]
+        },
+        {
+          "action": "REPLY",
+          "turn": 1,
+          "agent": "Alice",
+          "message": {
+            "__module__": "agentscope.message.msg",
+            "__name__": "Msg",
+            "id": "cf2ddd27d38640faba6ecb6a169b8a0d",
+            "timestamp": "2025-01-14 19:29:45",
+            "metadata": null,
+            "role": "assistant",
+            "content": "(No valid actions)",
+            "name": "Alice",
+            "url": null
+          },
+          "actions": []
+        },
+        {
+          "action": "SKIP",
+          "turn": 1,
+          "agent": "Bob"
+        },
+        {
+          "action": "SKIP",
+          "turn": 1,
+          "agent": "Carol"
+        },
+        {
+          "action": "REPLY",
+          "turn": 1,
+          "agent": "Alice",
+          "message": {
+            "__module__": "agentscope.message.msg",
+            "__name__": "Msg",
+            "id": "b549d09e87fe471598172373731c2290",
+            "timestamp": "2025-01-14 19:31:09",
+            "metadata": null,
+            "role": "assistant",
+            "content": "(No valid actions)",
+            "name": "Alice",
+            "url": null
+          },
+          "actions": []
+        },
+        {
+          "action": "SKIP",
+          "turn": 1,
+          "agent": "Bob"
+        }
+      ],
+      "final_deals": [],
+      "agent_states": {}
+    }
+  }
+}
